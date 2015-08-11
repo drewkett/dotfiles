@@ -66,7 +66,7 @@ else
 	export SU2_HOME="/home/andrew/dev/SU2"
 	#export SU2_DBG_RUN="/home/andrew/dev/SU2_dbg/bin"
 
-	alias upgrade="sudo pacmatic -Syu && yaourt -Su --aur"
+	alias upgrade="sudo pacmatic -Syu && yaourt -Su --aur --noconfirm"
 	export PATH="/home/andrew/dev/SU2_cuda/bin:$PATH"
 
 	export PATH=$PATH:/home/andrew/.gem/ruby/2.2.0/bin
