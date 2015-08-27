@@ -33,6 +33,7 @@
 (setq helm-M-x-fuzzy-match t)
 
 (add-to-list 'evil-emacs-state-modes 'cider-repl-mode)
+(add-to-list 'evil-emacs-state-modes 'cider-stacktrace-mode)
 (add-to-list 'evil-emacs-state-modes 'magit-popup-mode)
 (add-to-list 'evil-emacs-state-modes 'magit-popup-sequence-mode)
 (add-to-list 'evil-emacs-state-modes 'cvs-mode)
