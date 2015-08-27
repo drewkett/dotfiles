@@ -44,11 +44,12 @@
   '(progn
      (add-hook 'clojure-mode-hook 'cider-mode)))
 
-(load "auctex.el" nil t t)
+(if
+    (locate-library "auctex.el")
+    (load "auctex.el" nil t t))
 (if
     (locate-library "preview-latex.el")
-(load "preview-latex.el" nil t t)
-    )
+    (load "preview-latex.el" nil t t))
 
 (setq TeX-auto-save t)
 (setq TeX-parse-self t)
