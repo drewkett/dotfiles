@@ -5,6 +5,16 @@
 	package-archives)
 (package-initialize)
 
+(unless package-archive-contents
+  (package-refresh-contents))
+
+(setq package-list '(evil magit helm cider smartparens auctex))
+
+; install the missing packages
+(dolist (package package-list)
+  (unless (package-installed-p package)
+    (package-install package)))
+
 (require 'evil)
 (evil-mode 1)
 
@@ -35,7 +45,10 @@
      (add-hook 'clojure-mode-hook 'cider-mode)))
 
 (load "auctex.el" nil t t)
+(if
+    (locate-library "preview-latex.el")
 (load "preview-latex.el" nil t t)
+    )
 
 (setq TeX-auto-save t)
 (setq TeX-parse-self t)
