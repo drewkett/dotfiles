@@ -33,7 +33,11 @@ autoload -U down-line-or-beginning-search
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 
+
+
 if [[ `uname` == "Darwin" ]]; then 
+  alias xem="open /Users/andrew/Applications/Emacs.app"
+  alias em="emacs"
 	bindkey "^[[A" up-line-or-beginning-search # Up
 	bindkey "^[[B" down-line-or-beginning-search # Down
 	bindkey "^[OA" up-line-or-beginning-search # Up
@@ -50,6 +54,8 @@ if [[ `uname` == "Darwin" ]]; then
 	export DOCKER_CERT_PATH=/Users/andrew/.boot2docker/certs/boot2docker-vm
 	export DOCKER_TLS_VERIFY=1
 else
+  alias xem="emacs"
+  alias em="emacs -nw"
 	bindkey "^[[A" up-line-or-beginning-search # Up
 	bindkey "^[[B" down-line-or-beginning-search # Down
 	bindkey "^[OA" up-line-or-beginning-search # Up
@@ -66,7 +72,7 @@ else
 	export SU2_HOME="/home/andrew/dev/SU2"
 	#export SU2_DBG_RUN="/home/andrew/dev/SU2_dbg/bin"
 
-	alias upgrade="sudo pacmatic -Syu && yaourt -Su --aur --noconfirm"
+	alias upgrade="sudo pacmatic -Syu --noconfirm && yaourt -Su --aur --noconfirm"
 	export PATH="/home/andrew/dev/SU2_cuda/bin:$PATH"
 
 	export PATH=$PATH:/home/andrew/.gem/ruby/2.2.0/bin
