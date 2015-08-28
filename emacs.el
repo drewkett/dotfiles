@@ -86,3 +86,7 @@
 (require 'ess-site)
 (ess-toggle-underscore nil)
 
+(require 'workgroups2)
+(setq wg-prefix-key (kbd "M-w"))
+(setq wg-session-load-on-start t) 
+(workgroups-mode 1)
