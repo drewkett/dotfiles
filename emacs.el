@@ -1,14 +1,15 @@
 (require 'package)
-(push '("marmalade" . "http://marmalade-repo.org/packages/")
-      package-archives)
+;(push '("marmalade" . "http://marmalade-repo.org/packages/")
+;      package-archives)
 (push '("melpa" . "http://melpa.milkbox.net/packages/")
-      package-archives)
+     package-archives)
+
 (package-initialize)
 
 (unless package-archive-contents
   (package-refresh-contents))
 
-(let ((packages-list '(evil magit helm cider smartparens auctex workgroups2)))
+(let ((package-list '(evil magit helm cider smartparens auctex workgroups2)))
   (dolist (package package-list)
     (unless (package-installed-p package)
       (package-install package))))
