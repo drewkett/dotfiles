@@ -20,7 +20,7 @@
 (load-theme 'tango-dark)	
 
 (global-set-key (kbd "C-x g") 'magit-status)
-(global-set-key (kbd "C-x c") 'cvs-status)
+(global-set-key (kbd "C-x t") 'cvs-status)
 
 (require 'helm-config)
 (helm-mode 1)
@@ -59,11 +59,8 @@
 (setq TeX-PDF-mode t)
 
 (add-hook 'LaTeX-mode-hook 'visual-line-mode)
-
 (add-hook 'LaTeX-mode-hook 'flyspell-mode)
-
 (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
-
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
 
 (setq reftex-plug-into-AUCTeX t)
