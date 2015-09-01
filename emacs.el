@@ -9,7 +9,7 @@
 (unless package-archive-contents
   (package-refresh-contents))
 
-(let ((package-list '(evil magit helm cider smartparens auctex workgroups2)))
+(let ((package-list '(evil magit helm cider smartparens auctex workgroups2 ess)))
   (dolist (package package-list)
     (unless (package-installed-p package)
       (package-install package))))
