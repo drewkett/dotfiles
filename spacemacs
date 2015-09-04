@@ -18,7 +18,6 @@
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      auto-completion
-     ;; better-defaults
      emacs-lisp
      ess
      dockerfile
@@ -37,11 +36,6 @@
      eyebrowse
      perspectives
      latex
-     ;; markdown
-     ;; org
-     ;; (shell :variables
-     ;;        shell-default-height 30
-     ;;        shell-default-position 'bottom)
      shell
      syntax-checking
      version-control

@@ -55,8 +55,8 @@ if [[ `uname` == "Darwin" ]]; then
 	export DOCKER_CERT_PATH=/Users/andrew/.boot2docker/certs/boot2docker-vm
 	export DOCKER_TLS_VERIFY=1
 else
-  alias xem="emacs"
-  alias em="emacs -nw"
+  alias xem="emacsclient -c -n -a emacs"
+  alias em="emacsclient -nw -c -a emacs"
 	bindkey "^[[A" up-line-or-beginning-search # Up
 	bindkey "^[[B" down-line-or-beginning-search # Down
 	bindkey "^[OA" up-line-or-beginning-search # Up
