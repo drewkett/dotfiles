@@ -55,8 +55,8 @@ if [[ `uname` == "Darwin" ]]; then
 	export DOCKER_CERT_PATH=/Users/andrew/.boot2docker/certs/boot2docker-vm
 	export DOCKER_TLS_VERIFY=1
 else
-  alias xem="emacs"
-  alias em="emacs -nw"
+  alias xem="emacsclient -c -n -a emacs"
+  alias em="emacsclient -nw -c -a emacs"
 	bindkey "^[[A" up-line-or-beginning-search # Up
 	bindkey "^[[B" down-line-or-beginning-search # Down
 	bindkey "^[OA" up-line-or-beginning-search # Up
@@ -73,7 +73,8 @@ else
 	export SU2_HOME="/home/andrew/dev/SU2"
 	#export SU2_DBG_RUN="/home/andrew/dev/SU2_dbg/bin"
 
-	alias upgrade="sudo pacmatic -Syu --noconfirm && yaourt -Su --aur --noconfirm"
+	alias upgrade="sudo pacmatic -Syu --ignore linux --ignore nvidia --noconfirm && yaourt -Su --aur --noconfirm"
+	alias dist-upgrade="sudo pacmatic -Syu --noconfirm && yaourt -Su --aur --noconfirm"
 	export PATH="/home/andrew/dev/SU2_cuda/bin:$PATH"
 
 	export PATH=$PATH:/home/andrew/.gem/ruby/2.2.0/bin
