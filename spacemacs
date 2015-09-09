@@ -172,7 +172,6 @@ before layers configuration."
  This function is called at the very end of Spacemacs initialization after
 layers configuration."
   (setq-default TeX-master nil) ; Query for master file fs
-  (evil-leader/set-key "qw" 'delete-frame)
 )
 
 
