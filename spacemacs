@@ -17,13 +17,14 @@
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     auto-completion
+     ;; auto-completion
      emacs-lisp
      ess
      dockerfile
      fasd
      git
      osx
+
      go
      c-c++
      haskell
@@ -32,13 +33,16 @@
      rust
      ruby
      shell-scripts
+     racket
      ipython-notebook
-     eyebrowse
+     ;;eyebrowse
      perspectives
      latex
-     shell
+     (shell :variables shell-default-term-shell "/bin/zsh")
      syntax-checking
      version-control
+     ;; workgroups2
+     ranger
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -78,10 +82,10 @@ before layers configuration."
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(monokai
-                         spacemacs-dark
                          solarized-light
                          solarized-dark
                          spacemacs-light
+                         spacemacs-dark
                          leuven
                          zenburn)
    ;; If non nil the cursor color matches the state color.
@@ -165,6 +169,7 @@ before layers configuration."
    dotspacemacs-default-package-repository nil
    )
   ;; User initialization goes here
+  (setenv "SHELL" "/bin/zsh")
   )
 
 (defun dotspacemacs/config ()
@@ -172,8 +177,11 @@ before layers configuration."
  This function is called at the very end of Spacemacs initialization after
 layers configuration."
   (setq-default TeX-master nil) ; Query for master file fs
-)
-
+  (setq desktop-path '("~/.emacs.d/"))
+  (setq desktop-dirname "~/.emacs.d/")
+  (setq desktop-base-file-name "emacs-desktop")
+  (setq desktop-restore-frames nil)
+  )
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.

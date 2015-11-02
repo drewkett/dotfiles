@@ -37,9 +37,9 @@ zle -N down-line-or-beginning-search
 
 
 if [[ `uname` == "Darwin" ]]; then 
-  #alias em="/Users/andrew/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -t -a /Users/andrew/Applications/Emacs.app/Contents/MacOS/bin/emacs "
-  alias em="/Users/andrew/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -t -a \"\" "
-	bindkey "^[[A" up-line-or-beginning-search # Up
+  #alias xem="open /Users/andrew/Applications/Emacs.app"
+  alias e="emacs"
+  bindkey "^[[A" up-line-or-beginning-search # Up
 	bindkey "^[[B" down-line-or-beginning-search # Down
 	bindkey "^[OA" up-line-or-beginning-search # Up
 	bindkey "^[OB" down-line-or-beginning-search # Down
@@ -56,8 +56,8 @@ if [[ `uname` == "Darwin" ]]; then
 	export DOCKER_CERT_PATH=/Users/andrew/.boot2docker/certs/boot2docker-vm
 	export DOCKER_TLS_VERIFY=1
 else
-  alias xem="emacsclient -c -n -a emacs"
-  alias em="emacsclient -nw -c -a emacs"
+  #alias xem="emacsclient -c -n -a emacs"
+  alias e="emacsclient -nw -a emacs"
 	bindkey "^[[A" up-line-or-beginning-search # Up
 	bindkey "^[[B" down-line-or-beginning-search # Down
 	bindkey "^[OA" up-line-or-beginning-search # Up
@@ -74,7 +74,9 @@ else
 	export SU2_HOME="/home/andrew/dev/SU2"
 	#export SU2_DBG_RUN="/home/andrew/dev/SU2_dbg/bin"
 
-	alias upgrade="sudo pacmatic -Syu --ignore linux --ignore nvidia --noconfirm && yaourt -Su --aur --noconfirm"
+  #export PACMAN_IGNORES="--ignore linux --ignore nvidia --ignore nvidia-utils --ignore nvidia-lts --ignore nvidia-libgl --ignore opencl-nvidia --ignore linux-lts --ignore systemd --ignore glibc"
+  export PACMAN_IGNORES="--ignore linux --ignore linux-lts --ignore systemd --ignore libsystemd --ignore systemd-sysvcompat --ignore glibc"
+	alias upgrade="sudo pacmatic -Syu --noconfirm $PACMAN_IGNORES && yaourt -Su --aur --noconfirm $PACMAN_IGNORES"
 	alias dist-upgrade="sudo pacmatic -Syu --noconfirm && yaourt -Su --aur --noconfirm"
 	export PATH="/home/andrew/dev/SU2_cuda/bin:$PATH"
 
@@ -83,6 +85,7 @@ else
 
 	export PATH=$PATH:~/dev/naspy
 	export PATH=/home/andrew/dev/esp8266/esp-open-sdk/xtensa-lx106-elf/bin:$PATH
+	export PATH="/home/andrew/miniconda3/bin:$PATH"
 fi
 
 export PYTHON=python2
