@@ -37,16 +37,17 @@ zle -N down-line-or-beginning-search
 
 
 if [[ `uname` == "Darwin" ]]; then 
-  alias xem="open /Users/andrew/Applications/Emacs.app"
-  alias em="emacs"
+  #alias em="/Users/andrew/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -t -a /Users/andrew/Applications/Emacs.app/Contents/MacOS/bin/emacs "
+  alias em="/Users/andrew/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -t -a \"\" "
 	bindkey "^[[A" up-line-or-beginning-search # Up
 	bindkey "^[[B" down-line-or-beginning-search # Down
 	bindkey "^[OA" up-line-or-beginning-search # Up
 	bindkey "^[OB" down-line-or-beginning-search # Down
 	alias ls="ls -G"
 	alias brew_cask_upgrade=""
-	export PATH="/Users/andrew/miniconda3/bin:$PATH"
+	export PATH="/usr/local/bin:$PATH"
 	export PATH="/usr/local/sbin:$PATH"
+	export PATH="/Users/andrew/miniconda3/bin:$PATH"
 	export SU2_RUN="/Users/andrew/dev/SU2/bin"
 	export SU2_HOME="/Users/andrew/dev/SU2"
 	export SU2_DBG_RUN="/Users/andrew/dev/SU2_dbg/bin"
