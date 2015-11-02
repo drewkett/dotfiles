@@ -1,4 +1,4 @@
-[ -z "$SSH_CLIENT" ] && [ -z "$INSIDE_EMACS" ] && [ "$TMUX" = "" ] && [ $(ps -o comm= -p $PPID) != "sshd" ] && tmux -2 new
+[[ `uname` != "Darwin" ]] && [ -z "$SSH_CLIENT" ] && [ -z "$INSIDE_EMACS" ] && [ "$TMUX" = "" ] && [ $(ps -o comm= -p $PPID) != "sshd" ] && tmux -2 new
 #[ `uname` != "Darwin" ] && [ -z "$SSH_CLIENT" ] && [ -z "$INSIDE_EMACS" ] && [ "$TMUX" = "" ] && [ $(ps -o comm= -p $PPID) != "sshd" ] && tmux -2 new
 
 autoload -U promptinit compinit colors
