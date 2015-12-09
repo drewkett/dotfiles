@@ -78,6 +78,7 @@ else
   export PACMAN_IGNORES="--ignore linux --ignore linux-lts --ignore systemd --ignore libsystemd --ignore systemd-sysvcompat --ignore glibc"
 	alias upgrade="sudo pacmatic -Syu --noconfirm $PACMAN_IGNORES && yaourt -Su --aur --noconfirm $PACMAN_IGNORES"
 	alias dist-upgrade="sudo pacmatic -Syu --noconfirm && yaourt -Su --aur --noconfirm"
+	alias upgradeable="yaourt -Qu --aur"
 	export PATH="/home/andrew/dev/SU2_cuda/bin:$PATH"
 
 	export PATH=$PATH:/home/andrew/.gem/ruby/2.2.0/bin
