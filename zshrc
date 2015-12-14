@@ -1,5 +1,4 @@
 [[ `uname` != "Darwin" ]] && [ -z "$SSH_CLIENT" ] && [ -z "$INSIDE_EMACS" ] && [ "$TMUX" = "" ] && [ $(ps -o comm= -p $PPID) != "sshd" ] && tmux -2 new
-#[ `uname` != "Darwin" ] && [ -z "$SSH_CLIENT" ] && [ -z "$INSIDE_EMACS" ] && [ "$TMUX" = "" ] && [ $(ps -o comm= -p $PPID) != "sshd" ] && tmux -2 new
 
 autoload -U promptinit compinit colors
 compinit
@@ -34,7 +33,7 @@ autoload -U down-line-or-beginning-search
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 
-
+alias cvsupdate="cvs -q update -RdP"
 
 if [[ `uname` == "Darwin" ]]; then 
   #alias xem="open /Users/andrew/Applications/Emacs.app"
@@ -120,3 +119,5 @@ export PATH=$PATH:$GOPATH/bin
 export _FASD_BACKENDS="native viminfo"
 eval "$(fasd --init auto)"
 alias o='a -e xdg-open'
+
+[ -n "$INSIDE_EMACS" ] && export EDITOR="nano"
