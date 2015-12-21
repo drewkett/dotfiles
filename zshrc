@@ -121,3 +121,5 @@ eval "$(fasd --init auto)"
 alias o='a -e xdg-open'
 
 [ -n "$INSIDE_EMACS" ] && export EDITOR="nano"
+
+true
