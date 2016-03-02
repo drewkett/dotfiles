@@ -22,6 +22,7 @@
         vim
         neovim
         silver-searcher
+        htop
 
         source-code-pro
 
