@@ -29,7 +29,7 @@
 
         source-code-pro
 
-        chromium
+        ( chromium.override { enablePepperFlash = true; } )
 
         nix-repl
         ( python34.buildEnv.override {
@@ -37,7 +37,7 @@
               ignoreCollisions = true;
         } )
       ];
-    in 
+    in
       buildEnv rec {
         name = "all";
         paths =
@@ -45,8 +45,5 @@
           then allPackages ++ macOnlyPackages
           else allPackages ++ linuxOnlyPackages;
       };
-  };
-  chromium = {
-    enablePepperFlash = true;
   };
 }
