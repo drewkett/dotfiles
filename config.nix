@@ -27,9 +27,12 @@
         source-code-pro
 
         chromium
-        mypython
 
         nix-repl
+        ( python34.buildEnv.override {
+              extraLibs = with python34Packages; [numpy scipy matplotlib tables pandas ipython];
+              ignoreCollisions = true;
+        } )
       ];
     in 
       buildEnv rec {
@@ -39,18 +42,6 @@
           then allPackages
           else allPackages ++ linuxOnlyPackages;
       };
-    mypython = python34.buildEnv.override {
-      extraLibs = with python34Packages; [
-        python34
-        numpy
-        scipy
-        matplotlib
-        tables
-        pandas
-        ipython
-      ];
-      ignoreCollisions = true;
-    };
     # emacs = if pkgs.stdenv.isDarwin
     #         then pkgs.emacs24Macport
     #         else pkgs.emacs24;
