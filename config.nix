@@ -3,10 +3,14 @@
     all = with pkgs; let
       linuxOnlyPackages = with pkgs; [
         rustc
+        ( emacs.override { withGTK3 = true; withGTK2=false; } )
         filezilla
         wireshark
         libreoffice
         meld
+      ];
+      macOnlyPackages = with pkgs; [
+        emacsMacPort
       ];
       allPackages =  [
         go
@@ -18,7 +22,6 @@
 
         git
         cvs
-        emacs
         vim
         neovim
         silver-searcher
@@ -39,13 +42,9 @@
         name = "all";
         paths =
           if stdenv.isDarwin
-          then allPackages
+          then allPackages ++ macOnlyPackages
           else allPackages ++ linuxOnlyPackages;
       };
-    # emacs = if pkgs.stdenv.isDarwin
-    #         then pkgs.emacs24Macport
-    #         else pkgs.emacs24;
-    emacs = emacs.override { withGTK3 = true; withGTK2=false; };
   };
   chromium = {
     enablePepperFlash = true;
