@@ -3,7 +3,7 @@ let
   chromium.enablePepperFlash = true;
   emacs = {withGTK3= true; wthGTK2 = false; };
   mypython = python34.buildEnv.override {
-    extraLibs = with pkgs.python34Packages; [ numpy scipy matplotlib tables pandas ipython ];
+    extraLibs = with pkgs.python34Packages; [ numpy scipy matplotlib tables pandas notebook jupyter_console ];
   };
 in {
   inherit
