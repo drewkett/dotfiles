@@ -2,8 +2,8 @@ with import (fetchTarball https://nixos.org/channels/nixpkgs-unstable/nixexprs.t
 let 
   chromium.enablePepperFlash = true;
   emacs = {withGTK3= true; wthGTK2 = false; };
-  mypython = python34.buildEnv.override {
-    extraLibs = with pkgs.python34Packages; [ numpy scipy matplotlib tables pandas notebook jupyter_console ];
+  mypython = python3.buildEnv.override {
+    extraLibs = with pkgs.python3Packages; [ numpy scipy matplotlib tables pandas notebook jupyter_console ];
   };
 in {
   inherit
@@ -15,6 +15,7 @@ in {
     nix-repl
 
     go julia R leiningen rustc mypython
+    nodejs
 
     aspell
     source-code-pro
