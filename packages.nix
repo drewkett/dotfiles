@@ -17,7 +17,7 @@ in {
     go julia R leiningen rustc mypython
     nodejs
 
-    aspell
+    aspell aspellDicts
     source-code-pro
 
     irssi
