@@ -1,28 +1,31 @@
 with import (fetchTarball https://nixos.org/channels/nixpkgs-unstable/nixexprs.tar.xz) {};
 let 
-  chromium.enablePepperFlash = true;
-  emacs = {withGTK3= true; wthGTK2 = false; };
+  # mychromium = chromium.override {
+  #   enablePepperFlash = true;
+  #   enableNaCl = true;
+  # };
+  # mychromium = chromium.override {enablePepperFlash = true;};
   mypython = python3.buildEnv.override {
     extraLibs = with pkgs.python3Packages; [ numpy scipy matplotlib tables pandas notebook jupyter_console ];
   };
+  #mynode = nodejs.buildEnv.override {
+  #  extraLibs = with pkgs.nodePackages; [ jsbeautify ];
+  #};
+  nodePkgs = pkgs.nodePackages.override { 
+    generated = ./node-packages.nix;
+    self = nodePkgs;
+  };
 in {
-  inherit
-    git cvs
-
-    vim neovim emacs
-
-    silver-searcher htop ethtool fasd p7zip
-    nix-repl
-
-    go julia R leiningen rustc mypython
-    nodejs
-
-    aspell aspellDicts
-    source-code-pro
-
-    irssi
-    filezilla
-    wireshark
-    chromium
-    ;
+  inherit git cvs;
+  inherit vim neovim emacs;
+  inherit gfortran gnumake gdb;
+  inherit aspell aspellDicts;
+  inherit source-code-pro;
+  inherit irssi filezilla wireshark libreoffice ;
+  inherit htop ethtool fasd silver-searcher which p7zip unzip;
+  inherit nix-repl;
+  inherit go julia R leiningen rustc;
+  inherit mypython;
+  inherit nodejs npm2nix;
+  inherit (nodePkgs) "js-beautify" "tern" "bower" "jshint" ;
 }
