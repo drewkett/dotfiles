@@ -17,12 +17,13 @@ let
   };
 in {
   inherit git cvs;
+  inherit terminator;
   inherit vim neovim emacs;
   inherit gfortran gnumake gdb;
   inherit aspell aspellDicts;
   inherit source-code-pro;
   inherit irssi filezilla wireshark libreoffice ;
-  inherit htop ethtool fasd silver-searcher which p7zip unzip;
+  inherit htop ethtool fasd silver-searcher which p7zip unzip xclip;
   inherit nix-repl;
   inherit go julia R leiningen rustc;
   inherit mypython;
