@@ -25,8 +25,15 @@ in {
   inherit irssi filezilla wireshark libreoffice ;
   inherit htop ethtool fasd silver-searcher which p7zip unzip xclip;
   inherit nix-repl;
-  inherit go julia R leiningen rustc;
   inherit mypython;
+  inherit go julia leiningen rustc;
   inherit nodejs npm2nix;
   inherit (nodePkgs) "js-beautify" "tern" "bower" "jshint" ;
+  myR = pkgs.rWrapper.override {
+    packages = with pkgs.rPackages; [
+      ggplot2
+      reshape2
+      recommenderlab
+    ];
+  };
 }
