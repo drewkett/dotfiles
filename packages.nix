@@ -5,9 +5,6 @@ let
   #   enableNaCl = true;
   # };
   # mychromium = chromium.override {enablePepperFlash = true;};
-  mypython = python3.buildEnv.override {
-    extraLibs = with pkgs.python3Packages; [ numpy scipy matplotlib tables pandas notebook jupyter_console ];
-  };
   #mynode = nodejs.buildEnv.override {
   #  extraLibs = with pkgs.nodePackages; [ jsbeautify ];
   #};
@@ -25,7 +22,6 @@ in {
   inherit irssi filezilla wireshark libreoffice ;
   inherit htop ethtool fasd silver-searcher which p7zip unzip xclip;
   inherit nix-repl;
-  inherit mypython;
   inherit go julia leiningen rustc;
   inherit nodejs npm2nix;
   inherit redis;
@@ -33,6 +29,11 @@ in {
   inherit (nodePkgs) "js-beautify" "tern" "bower" "jshint" ;
 
   okular = pkgs.kde5.okular;
+  mypython = python3.buildEnv.override {
+    extraLibs = with pkgs.python3Packages; [
+          numpy scipy matplotlib tables pandas notebook jupyter_console redis
+    ];
+  };
   myR = pkgs.rWrapper.override {
     packages = with pkgs.rPackages; [
       ggplot2
