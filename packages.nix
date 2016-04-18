@@ -28,6 +28,7 @@ in {
   inherit mypython;
   inherit go julia leiningen rustc;
   inherit nodejs npm2nix;
+  inherit redis;
   inherit (nodePkgs) "js-beautify" "tern" "bower" "jshint" ;
   myR = pkgs.rWrapper.override {
     packages = with pkgs.rPackages; [
