@@ -1,13 +1,5 @@
 with import (fetchTarball https://nixos.org/channels/nixpkgs-unstable/nixexprs.tar.xz) {};
 let 
-  # mychromium = chromium.override {
-  #   enablePepperFlash = true;
-  #   enableNaCl = true;
-  # };
-  # mychromium = chromium.override {enablePepperFlash = true;};
-  #mynode = nodejs.buildEnv.override {
-  #  extraLibs = with pkgs.nodePackages; [ jsbeautify ];
-  #};
   nodePkgs = pkgs.nodePackages.override { 
     generated = ./node-packages.nix;
     self = nodePkgs;
