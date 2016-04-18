@@ -31,6 +31,8 @@ in {
   inherit redis;
   inherit subversion;
   inherit (nodePkgs) "js-beautify" "tern" "bower" "jshint" ;
+
+  okular = pkgs.kde5.okular;
   myR = pkgs.rWrapper.override {
     packages = with pkgs.rPackages; [
       ggplot2
