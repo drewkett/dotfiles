@@ -49,6 +49,8 @@ in {
   inherit nodejs npm2nix;
   inherit redis;
   inherit subversion;
+  inherit tesseract ghostscript imagemagick;
+  inherit poppler_utils;
   inherit (nodePkgs) "js-beautify" "tern" "bower" "jshint" ;
 
   okular = pkgs.kde5.okular;
