@@ -1,4 +1,4 @@
-with import (fetchTarball https://nixos.org/channels/nixpkgs-unstable/nixexprs.tar.xz) {};
+with import <nixpkgs> {};
 let 
   nodePkgs = pkgs.nodePackages.override { 
     generated = ./node-packages.nix;
