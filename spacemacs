@@ -17,32 +17,29 @@
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     ;; auto-completion
+     auto-completion
      emacs-lisp
      ess
      dockerfile
      fasd
      git
-     osx
+     ;; osx
 
      go
      c-c++
-     haskell
+     ;; haskell
      javascript
      python
      rust
      ruby
      shell-scripts
-     racket
+     ;; racket
      ipython-notebook
-     ;;eyebrowse
-     perspectives
      latex
-     (shell :variables shell-default-term-shell "/bin/zsh")
-     syntax-checking
-     version-control
-     ;; workgroups2
-     ranger
+     shell
+     ;; (shell :variables shell-default-term-shell "/bin/zsh")
+     ;; syntax-checking
+     ;; version-control
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -169,7 +166,7 @@ before layers configuration."
    dotspacemacs-default-package-repository nil
    )
   ;; User initialization goes here
-  (setenv "SHELL" "/bin/zsh")
+  ;; (setenv "SHELL" "/bin/zsh")
   )
 
 (defun dotspacemacs/config ()
