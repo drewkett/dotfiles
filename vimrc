@@ -86,8 +86,8 @@ nnoremap <Leader>ws :s<CR>
 nnoremap <Leader>wv :vs<CR>
 
 " Movement
-nnoremap <Leader>d <C-d>
-nnoremap <Leader>u <C-u>
+nnoremap <Leader>j <C-d>
+nnoremap <Leader>k <C-u>
 nnoremap <Tab> >>
 nnoremap <S-Tab> <<
 vnoremap <Tab> >gv
