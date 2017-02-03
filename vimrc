@@ -29,22 +29,26 @@ let mapleader = "\<Space>"
 "python
 autocmd FileType python nnoremap <Leader>= :0,$!yapf<CR>
 
-
-" app
-nnoremap <Leader>qq :q<CR>
-nnoremap <Leader>QQ :q!<CR>
-
 " vimrc
 nnoremap <Leader>re :edit ~\.vimrc<CR>
 nnoremap <Leader>rr :source ~\.vimrc<CR>
 nnoremap <Leader>pi :source ~\.vimrc<CR>:PlugInstall<CR>
 nnoremap <Leader>pc :PlugClean<CR>
 
+" word wrapping
+nnoremap <Leader>tw :set wrap!<CR>
+
+" directory
+nnoremap <Leader>dc :cd %:h<CR>
+nnoremap <Leader>dh :cd<CR>
+nnoremap <Leader>dl :cd -<CR>
+
 " commenting
 nnoremap <Leader>; :call NERDComment(0,"toggle")<CR>
 vnoremap <Leader>; :call NERDComment(0,"toggle")<CR>
 
 " file system
+nnoremap <Leader>ff :e 
 nnoremap <Leader>fs :write<CR>
 nnoremap <Leader>ft :NERDTreeToggle<CR>
 
@@ -62,7 +66,8 @@ nnoremap <Leader>pr :CtrlPMRU<CR>
 nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>gd :Gdiff<CR>
 nnoremap <Leader>gp :Gpush<CR>
-nnoremap <Leader>gf :Gpull<CR>
+nnoremap <Leader>gf :Gfetch<CR>
+nnoremap <Leader>gF :Gpull<CR>
 
 " Window Management
 nnoremap <Leader>wh <C-w>H
