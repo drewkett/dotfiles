@@ -50,6 +50,7 @@ vnoremap <Leader>; :call NERDComment(0,"toggle")<CR>
 " file system
 nnoremap <Leader>ff :e 
 nnoremap <Leader>fs :write<CR>
+nnoremap <Leader>fq :wq<CR>
 nnoremap <Leader>ft :NERDTreeToggle<CR>
 
 " buffers
