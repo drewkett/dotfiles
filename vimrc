@@ -6,13 +6,14 @@ Plug 'flazz/vim-colorschemes'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-surround'
-Plug 'w0rp/ale'
+"Plug 'w0rp/ale'
 Plug 'scrooloose/nerdcommenter'
 "Plug 'davidhalter/jedi-vim'
 "Plug 'klen/python-mode', { 'for': 'python' }
+Plug 'rust-lang/rust.vim', { 'for' : 'rust' }
 call plug#end()
 
-colorscheme molokai
+silent! colorscheme molokai
 if has("gui_macvim")
 	set gfn=Menlo:h13
 else
@@ -28,6 +29,9 @@ let mapleader = "\<Space>"
 
 "python
 autocmd FileType python nnoremap <Leader>= :0,$!yapf<CR>
+
+"rust
+autocmd FileType rust nnoremap <Leader>= :RustFmt<CR>
 
 " vimrc
 nnoremap <Leader>re :edit ~\.vimrc<CR>
@@ -52,6 +56,7 @@ nnoremap <Leader>ff :e
 nnoremap <Leader>fs :write<CR>
 nnoremap <Leader>fq :wq<CR>
 nnoremap <Leader>ft :NERDTreeToggle<CR>
+nnoremap <Leader>fu :E<CR>
 
 " buffers
 nnoremap <Leader>bd :bd<CR>
@@ -87,8 +92,8 @@ nnoremap <Leader>ws :s<CR>
 nnoremap <Leader>wv :vs<CR>
 
 " Movement
-nnoremap <Leader>d <C-d>
-nnoremap <Leader>u <C-u>
+nnoremap <Leader>j <C-d>
+nnoremap <Leader>k <C-u>
 nnoremap <Tab> >>
 nnoremap <S-Tab> <<
 vnoremap <Tab> >gv
