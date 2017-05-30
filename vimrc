@@ -25,6 +25,8 @@ set clipboard=unnamed
 set laststatus=2
 filetype plugin on
 
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
+
 let mapleader = "\<Space>"
 
 "python
