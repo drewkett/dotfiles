@@ -6,8 +6,12 @@ Plug 'flazz/vim-colorschemes'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-surround'
-"Plug 'w0rp/ale'
+Plug 'w0rp/ale'
 Plug 'scrooloose/nerdcommenter'
+Plug 'airblade/vim-gitgutter'
+Plug 'godlygeek/tabular'
+Plug 'lervag/vimtex'
+Plug 'easymotion/vim-easymotion'
 "Plug 'davidhalter/jedi-vim'
 "Plug 'klen/python-mode', { 'for': 'python' }
 Plug 'rust-lang/rust.vim', { 'for' : 'rust' }
@@ -18,6 +22,9 @@ if has("gui_macvim")
 	set gfn=Menlo:h13
 else
 	set gfn=Consolas:h11:cANSI
+	let g:vimtex_view_general_viewer = 'SumatraPDF'
+let g:vimtex_view_general_options = '-reuse-instance -forward-search @tex @line @pdf'
+	let g:vimtex_view_general_options_latexmk = '-reuse-instance'
 endif
 set noswapfile nobackup
 set noerrorbells visualbell t_vb=
@@ -28,6 +35,7 @@ filetype plugin on
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
 
 let mapleader = "\<Space>"
+let maplocalleader = ","
 
 "python
 autocmd FileType python nnoremap <Leader>= :0,$!yapf<CR>
@@ -70,10 +78,21 @@ nnoremap <Leader>pb :CtrlPBuffer<CR>
 nnoremap <Leader>pf :CtrlP<CR>
 nnoremap <Leader>pr :CtrlPMRU<CR>
 
+" cnext
+nnoremap <Leader>co :copen<CR>
+nnoremap <Leader>cn :cnext<CR>
+nnoremap <Leader>cp :cprev<CR>
+nnoremap <Leader>cf :cfirst<CR>
+nnoremap <Leader>cl :clast<CR>
+nnoremap <Leader>cc :cclose<CR>
+nnoremap <Leader>ct :cw<CR>
+
 " git
 nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>gd :Gdiff<CR>
 nnoremap <Leader>gp :Gpush<CR>
+nnoremap <Leader>gl :Glog<CR>
+nnoremap <Leader>ge :Gedit<CR>
 nnoremap <Leader>gf :Gfetch<CR>
 nnoremap <Leader>gF :Gpull<CR>
 
@@ -103,22 +122,28 @@ vnoremap <S-Tab> <gv
 inoremap <Tab> <C-t>
 inoremap <S-Tab> <C-d>
 
+" alignment
+nnoremap <Leader>a= :Tabularize /=<CR>
+vnoremap <Leader>a= :Tabularize /=<CR>
+nnoremap <Leader>a: :Tabularize /:<CR>
+vnoremap <Leader>a: :Tabularize /:<CR>
+
 " Disable Arrows
 nnoremap <Up> <Nop>
 nnoremap <Down> <Nop>
 nnoremap <Left> <Nop>
 nnoremap <Right> <Nop>
-nnoremap <PageUp> <Nop>
-nnoremap <PageDown> <Nop>
+"nnoremap <PageUp> <Nop>
+"nnoremap <PageDown> <Nop>
 inoremap <Up> <Nop>
 inoremap <Down> <Nop>
 inoremap <Left> <Nop>
 inoremap <Right> <Nop>
-inoremap <PageUp> <Nop>
-inoremap <PageDown> <Nop>
+"inoremap <PageUp> <Nop>
+"inoremap <PageDown> <Nop>
 vnoremap <Up> <Nop>
 vnoremap <Down> <Nop>
 vnoremap <Left> <Nop>
 vnoremap <Right> <Nop>
-vnoremap <PageUp> <Nop>
-vnoremap <PageDown> <Nop>
+"vnoremap <PageUp> <Nop>
+"vnoremap <PageDown> <Nop>
