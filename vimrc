@@ -12,6 +12,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'godlygeek/tabular'
 Plug 'lervag/vimtex'
 Plug 'easymotion/vim-easymotion'
+Plug 'airblade/vim-rooter'
 "Plug 'davidhalter/jedi-vim'
 "Plug 'klen/python-mode', { 'for': 'python' }
 Plug 'rust-lang/rust.vim', { 'for' : 'rust' }
@@ -33,15 +34,33 @@ set laststatus=2
 filetype plugin on
 
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
+let g:rooter_change_directory_for_non_project_files = 'current'
+let g:rooter_silent_chdir = 1
+let g:rooter_resolve_links = 1
 
 let mapleader = "\<Space>"
 let maplocalleader = ","
 
 "python
-autocmd FileType python nnoremap <Leader>= :0,$!yapf<CR>
+autocmd Filetype python call PythonOpts()
+function! PythonOpts()
+	nnoremap <Leader>= :0,$!yapf<CR>
+endfunction
 
 "rust
-autocmd FileType rust nnoremap <Leader>= :RustFmt<CR>
+autocmd Filetype rust call RustOpts()
+function! RustOpts()
+	nnoremap <Leader>= :RustFmt<CR>
+	nnoremap <Leader>mt :!cargo test<CR>
+	nnoremap <Leader>mx :RustRun<CR>
+endfunction
+
+"tex
+autocmd Filetype tex call TexOpts()
+function! TexOpts()
+	nnoremap <Leader>mc :VimtexCompile<CR>
+	nnoremap <Leader>mv :VimtexView<CR>
+endfunction
 
 " vimrc
 nnoremap <Leader>re :edit ~\.vimrc<CR>
@@ -62,7 +81,6 @@ nnoremap <Leader>; :call NERDComment(0,"toggle")<CR>
 vnoremap <Leader>; :call NERDComment(0,"toggle")<CR>
 
 " file system
-nnoremap <Leader>ff :e 
 nnoremap <Leader>fs :write<CR>
 nnoremap <Leader>fq :wq<CR>
 nnoremap <Leader>ft :NERDTreeToggle<CR>
