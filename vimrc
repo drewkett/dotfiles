@@ -44,27 +44,33 @@ let maplocalleader = ","
 "python
 autocmd Filetype python call PythonOpts()
 function! PythonOpts()
-	nnoremap <Leader>= :0,$!yapf<CR>
+	nnoremap <buffer> <Leader>= :0,$!yapf<CR>
 endfunction
 
 "rust
 autocmd Filetype rust call RustOpts()
 function! RustOpts()
-	nnoremap <Leader>= :RustFmt<CR>
-	nnoremap <Leader>mt :!cargo test<CR>
-	nnoremap <Leader>mx :RustRun<CR>
+	nnoremap <buffer> <Leader>= :RustFmt<CR>
+	nnoremap <buffer> <Leader>mt :!cargo test<CR>
+	nnoremap <buffer> <Leader>mx :RustRun<CR>
 endfunction
 
 "tex
 autocmd Filetype tex call TexOpts()
 function! TexOpts()
-	nnoremap <Leader>mc :VimtexCompile<CR>
-	nnoremap <Leader>mv :VimtexView<CR>
+	nnoremap <buffer> <Leader>mc :VimtexCompile<CR>
+	nnoremap <buffer> <Leader>mv :VimtexView<CR>
+	setlocal sw=4 ts=4
 endfunction
+autocmd Filetype bib call BibOpts()
+function! BibOpts()
+	setlocal sw=4 ts=4
+endfunction
+
 
 " vimrc
 nnoremap <Leader>re :edit ~\.vimrc<CR>
-nnoremap <Leader>rr :source ~\.vimrc<CR>
+nnoremap <Leader>rr :set all&<CR> :source ~\.vimrc <CR>
 nnoremap <Leader>pi :source ~\.vimrc<CR>:PlugInstall<CR>
 nnoremap <Leader>pc :PlugClean<CR>
 
@@ -75,6 +81,11 @@ nnoremap <Leader>tw :set wrap!<CR>
 nnoremap <Leader>dc :cd %:h<CR>
 nnoremap <Leader>dh :cd<CR>
 nnoremap <Leader>dl :cd -<CR>
+
+" easy motion
+nmap <Leader>sl <Plug>(easymotion-bd-jk)
+nmap <Leader>sf <Plug>(easymotion-bd-f)
+nmap <Leader>sw <Plug>(easymotion-bd-w)
 
 " commenting
 nnoremap <Leader>; :call NERDComment(0,"toggle")<CR>
