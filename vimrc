@@ -34,7 +34,7 @@ set laststatus=2
 set mouse=a
 filetype plugin on
 
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 let g:rooter_change_directory_for_non_project_files = 'current'
 let g:rooter_silent_chdir = 1
 let g:rooter_resolve_links = 1
