@@ -26,12 +26,12 @@ else
 	let g:vimtex_view_general_viewer = 'SumatraPDF'
 	let g:vimtex_view_general_options = '-reuse-instance -forward-search @tex @line @pdf'
 	let g:vimtex_view_general_options_latexmk = '-reuse-instance -cd'
-	"let g:vimtex_compiler_latexmk = '-cd'
 endif
 set noswapfile nobackup
 set noerrorbells visualbell t_vb=
 set clipboard=unnamed
 set laststatus=2
+set mouse=a
 filetype plugin on
 
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
@@ -53,6 +53,8 @@ autocmd Filetype rust call RustOpts()
 function! RustOpts()
 	nnoremap <buffer> <Leader>= :RustFmt<CR>
 	nnoremap <buffer> <Leader>mt :!cargo test<CR>
+	nnoremap <buffer> <Leader>mr :!cargo run<CR>
+	nnoremap <buffer> <Leader>mb :!cargo build<CR>
 	nnoremap <buffer> <Leader>mx :RustRun<CR>
 endfunction
 
