@@ -55,6 +55,7 @@ nnoremap <Leader>w :write<CR>
 "
 "" git
 nnoremap <Leader>gs :Git<CR>
+nnoremap <Leader>gp :Git push<CR>
 nnoremap <Leader>gd :Gdiff<CR>
 "
 "" Window Management
