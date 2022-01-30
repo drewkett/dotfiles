@@ -4,9 +4,11 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 "Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-fugitive'
 "Plug 'tpope/vim-obsession'
-Plug 'thaerkh/vim-workspace'
+"Plug 'thaerkh/vim-workspace'
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-session'
 Plug 'flazz/vim-colorschemes'
-Plug 'kien/ctrlp.vim'
+"Plug 'kien/ctrlp.vim'
 "Plug 'vim-airline/vim-airline'
 "Plug 'tpope/vim-surround'
 "Plug 'w0rp/ale'
@@ -22,7 +24,7 @@ let g:Guifont="Source Code Pro Semibold:h12"
 set gfn="Source Code Pro Semibold:h12"
 set noswapfile nobackup
 set noerrorbells visualbell t_vb=
-set clipboard=unnamed
+"set clipboard=unnamed
 set laststatus=2
 
 let mapleader = "\<Space>"
@@ -35,10 +37,23 @@ nnoremap <Leader>cr :source ~\AppData\Local\nvim\init.vim<CR>
 nnoremap <Leader>ci :source ~\AppData\Local\nvim\init.vim<CR>:PlugInstall<CR>
 nnoremap <Leader>cc :PlugClean<CR>
 
-" sessions
-let g:workspace_autocreate = 1
-let g:workspace_session_directory = $HOME . '/AppData/Local/nvim/sessions'
-nnoremap <Leader>s :ToggleWorkspace<CR>
+" workspace
+"let g:workspace_autocreate = 1
+"let g:workspace_session_directory = $HOME . '/AppData/Local/nvim/sessions'
+"nnoremap <Leader>s :ToggleWorkspace<CR>
+"
+" session
+let g:session_autosave = 'yes'
+let g:session_autoload = 'yes'
+nnoremap <Leader>sn :SaveSession 
+nnoremap <Leader>sN :SaveSession! 
+nnoremap <Leader>ss :SaveSession 
+nnoremap <Leader>sS :SaveSession! 
+nnoremap <Leader>so :OpenSession 
+nnoremap <Leader>sO :OpenSession! 
+nnoremap <Leader>sd :DeleteSession
+nnoremap <Leader>sD :DeleteSession!
+
 
 " file system
 nnoremap <Leader>w :write<CR>
@@ -91,4 +106,4 @@ nnoremap <Leader>gd :Gdiff<CR>
 "vnoremap <Left> <Nop>
 "vnoremap <Right> <Nop>
 "vnoremap <PageUp> <Nop>
-vnoremap <PageDown> <Nop>
+"vnoremap <PageDown> <Nop>
