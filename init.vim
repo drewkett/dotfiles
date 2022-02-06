@@ -56,6 +56,7 @@ nnoremap <Leader>ss :SaveSession
 nnoremap <Leader>sS :SaveSession! 
 nnoremap <Leader>so :OpenSession 
 nnoremap <Leader>sO :OpenSession! 
+nnoremap <Leader>sc :CloseSession<CR>
 nnoremap <Leader>sd :DeleteSession
 nnoremap <Leader>sD :DeleteSession!
 
