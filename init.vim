@@ -1,8 +1,10 @@
 
 call plug#begin()
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'scrooloose/nerdcommenter'
 "Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-fugitive'
+"Plug 'airblade/vim-gitgutter'
 "Plug 'tpope/vim-obsession'
 "Plug 'thaerkh/vim-workspace'
 Plug 'xolox/vim-misc'
@@ -17,6 +19,10 @@ Plug 'flazz/vim-colorschemes'
 "Plug 'shougo/vimfiler.vim'
 "Plug 'davidhalter/jedi-vim'
 "Plug 'klen/python-mode', { 'for': 'python' }
+"Plug 'mbbill/undotree'
+Plug 'jremmen/vim-ripgrep'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
 colorscheme molokai
@@ -30,7 +36,6 @@ set laststatus=2
 let mapleader = "\<Space>"
 
 " vimrc
-"nnoremap <Leader>rge :edit ~\AppData\Local\nvim\ginit.vim<CR>
 "nnoremap <Leader>rgr :source ~\AppData\Local\nvim\ginit.vim<CR>
 nnoremap <Leader>ce :edit ~\AppData\Local\nvim\init.vim<CR>
 nnoremap <Leader>cr :source ~\AppData\Local\nvim\init.vim<CR>
@@ -68,10 +73,17 @@ nnoremap <Leader>w :write<CR>
 "nnoremap <Leader>pb :CtrlPBuffer<CR>
 "nnoremap <Leader>pf :CtrlP<CR>
 "
+"" files
+nnoremap <Leader>f :GFiles<CR>
+nnoremap <Leader>F :Files<CR>
+
 "" git
 nnoremap <Leader>gs :Git<CR>
 nnoremap <Leader>gp :Git push<CR>
 nnoremap <Leader>gd :Gdiff<CR>
+
+"" Rg
+nnoremap <leader>/ :Rg 
 "
 "" Window Management
 "nnoremap <Leader>wh <C-w>H
