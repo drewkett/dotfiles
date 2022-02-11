@@ -1,4 +1,6 @@
-
+" Install vim plug first 
+" vim linux
+" curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 call plug#begin()
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'scrooloose/nerdcommenter'
@@ -36,11 +38,17 @@ set laststatus=2
 let mapleader = "\<Space>"
 
 " vimrc
-"nnoremap <Leader>rgr :source ~\AppData\Local\nvim\ginit.vim<CR>
-nnoremap <Leader>ce :edit ~\AppData\Local\nvim\init.vim<CR>
-nnoremap <Leader>cr :source ~\AppData\Local\nvim\init.vim<CR>
-nnoremap <Leader>ci :source ~\AppData\Local\nvim\init.vim<CR>:PlugInstall<CR>
-nnoremap <Leader>cc :PlugClean<CR>
+if has('win32')
+  nnoremap <Leader>ce :edit ~\AppData\Local\nvim\init.vim<CR>
+  nnoremap <Leader>cr :source ~\AppData\Local\nvim\init.vim<CR>
+  nnoremap <Leader>ci :source ~\AppData\Local\nvim\init.vim<CR>:PlugInstall<CR>
+  nnoremap <Leader>cc :PlugClean<CR>
+else
+  nnoremap <Leader>ce :edit ~/.vimrc<CR>
+  nnoremap <Leader>cr :source ~/.vimrc<CR>
+  nnoremap <Leader>ci :source ~/.vimrc<CR>:PlugInstall<CR>
+  nnoremap <Leader>cc :PlugClean<CR>
+endif
 
 " workspace
 "let g:workspace_autocreate = 1
