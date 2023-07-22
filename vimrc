@@ -74,8 +74,8 @@ endfunction
 " vimrc
 nnoremap <Leader>re :edit ~\.vimrc<CR>
 nnoremap <Leader>rr :set all&<CR> :source ~\.vimrc <CR>
-nnoremap <Leader>pi :source ~\.vimrc<CR>:PlugInstall<CR>
-nnoremap <Leader>pc :PlugClean<CR>
+nnoremap <Leader>ri :source ~\.vimrc<CR>:PlugInstall<CR>
+nnoremap <Leader>rc :PlugClean<CR>
 
 " word wrapping
 nnoremap <Leader>tw :set wrap!<CR>
@@ -120,13 +120,13 @@ nnoremap <Leader>cc :cclose<CR>
 nnoremap <Leader>ct :cw<CR>
 
 " git
-nnoremap <Leader>gs :Gstatus<CR>
-nnoremap <Leader>gd :Gdiff<CR>
-nnoremap <Leader>gp :Gpush<CR>
-nnoremap <Leader>gl :Glog<CR>
-nnoremap <Leader>ge :Gedit<CR>
-nnoremap <Leader>gf :Gfetch<CR>
-nnoremap <Leader>gF :Gpull<CR>
+nnoremap <Leader>gs :Git<CR>
+nnoremap <Leader>gd :Git diff<CR>
+nnoremap <Leader>gp :Git push<CR>
+nnoremap <Leader>gl :Git log<CR>
+nnoremap <Leader>ge :Git edit<CR>
+nnoremap <Leader>gf :Git fetch<CR>
+nnoremap <Leader>gF :Git pull<CR>
 
 " Window Management
 nnoremap <Leader>wh <C-w>H
