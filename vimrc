@@ -13,6 +13,7 @@ Plug 'godlygeek/tabular'
 Plug 'lervag/vimtex'
 Plug 'easymotion/vim-easymotion'
 Plug 'airblade/vim-rooter'
+Plug 'will133/vim-dirdiff'
 "Plug 'davidhalter/jedi-vim'
 "Plug 'klen/python-mode', { 'for': 'python' }
 Plug 'rust-lang/rust.vim', { 'for' : 'rust' }
@@ -123,10 +124,13 @@ nnoremap <Leader>ct :cw<CR>
 nnoremap <Leader>gs :Git<CR>
 nnoremap <Leader>gd :Git diff<CR>
 nnoremap <Leader>gp :Git push<CR>
+nnoremap <Leader>gpo :Git push -u origin HEAD<CR>
+nnoremap <Leader>gP :Git pull<CR>
 nnoremap <Leader>gl :Git log<CR>
 nnoremap <Leader>ge :Git edit<CR>
 nnoremap <Leader>gf :Git fetch<CR>
-nnoremap <Leader>gF :Git pull<CR>
+nnoremap <Leader>gb :Git switch 
+nnoremap <Leader>gB :Git checkout -b 
 
 " Window Management
 nnoremap <Leader>wh <C-w>H
