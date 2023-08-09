@@ -1,4 +1,4 @@
-{pkgs, fantasy, ...}: {
+{pkgs, fantasy, jj, ...}: {
   home.username = "andrew";
   home.homeDirectory = "/home/andrew";
   home.stateVersion = "23.05"; # To figure this out you can comment out the line and see what version it expected.
@@ -9,6 +9,7 @@
       pkgs.fd
       pkgs.neovim
       pkgs.borgbackup
+      jj.packages.x86_64-linux.default
       #pkgs.gcc
       #pkgs.poetry
   ];
@@ -16,6 +17,12 @@
       EDITOR = "vim";
   };
   programs.home-manager.enable = true;
+
+  programs.git = {
+    enable = true;
+    userName = "Andrew Burkett";
+    userEmail = "burkett.andrew@gmail.com";
+  };
 
   systemd.user.services.bbh = {
     Unit.Description = "bb_hitters";

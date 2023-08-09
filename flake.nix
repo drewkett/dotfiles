@@ -7,16 +7,17 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     fantasy.url = "path:/home/andrew/code/fantasy";
+    jj.url = "github:martinvonz/jj";
   };
 
-  outputs = inputs @ { nixpkgs, home-manager, fantasy, ... }: {
+  outputs = inputs @ { nixpkgs, home-manager, fantasy, jj, ... }: {
     defaultPackage.x86_64-linux = home-manager.defaultPackage.x86_64-linux;
     homeConfigurations = {
       "andrew" = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs { system = "x86_64-linux"; };
           modules  = [ ./home.nix ];
           extraSpecialArgs = {
-            fantasy = fantasy;
+            inherit fantasy jj;
           };
         };
       };
