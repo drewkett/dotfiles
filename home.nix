@@ -44,11 +44,12 @@
     '';
     plugins = with pkgs.vimPlugins; [
       ctrlp
+      rust-vim
       vim-airline
       vim-fugitive
       vim-colorschemes
       vim-gitgutter
-      rust-vim
+      vim-prettier
     ];
   };
 
