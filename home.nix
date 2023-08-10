@@ -3,21 +3,34 @@
   home.homeDirectory = "/home/andrew";
   home.stateVersion = "23.05"; # To figure this out you can comment out the line and see what version it expected.
   home.packages = [
-      pkgs.gh
       pkgs.ripgrep
       pkgs.bottom
       pkgs.fd
-      pkgs.neovim
       pkgs.borgbackup
-      jj.packages.x86_64-linux.default
-      #pkgs.gcc
-      #pkgs.poetry
   ];
   home.sessionVariables = {
       EDITOR = "vim";
   };
   programs.home-manager.enable = true;
 
+  programs.firefox = {
+    enable = true;
+  };
+  programs.gh = {
+    enable = true;
+  };
+  programs.tmux = {
+    enable = true;
+  };
+  programs.jq = {
+    enable = true;
+  };
+  programs.bat = {
+    enable = true;
+  };
+  programs.jujutsu = {
+    enable = true;
+  };
   programs.git = {
     enable = true;
     userName = "Andrew Burkett";
