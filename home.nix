@@ -22,6 +22,34 @@
     enable = true;
     userName = "Andrew Burkett";
     userEmail = "burkett.andrew@gmail.com";
+    ignores = [ "*.swp" ];
+  };
+  programs.vim = {
+    enable = true;
+    extraConfig = ''
+      silent! colorscheme molokai
+      let mapleader = "\<Space>"
+      let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+      set mouse=a
+
+      nnoremap <Leader>re :edit ~\.vimrc<CR>
+      nnoremap <Leader>p :CtrlP<CR>
+      nnoremap <Leader>gs :Git<CR>
+      nnoremap <Leader>gp :Git push<CR>
+      nnoremap <Leader>gpo :Git push -u origin HEAD<CR>
+      nnoremap <Leader>gP :Git pull<CR>
+      nnoremap <Leader>gl :Git log<CR>
+      nnoremap <Leader>gb :Git switch 
+      nnoremap <Leader>gB :Git checkout -b 
+    '';
+    plugins = with pkgs.vimPlugins; [
+      ctrlp
+      vim-airline
+      vim-fugitive
+      vim-colorschemes
+      vim-gitgutter
+      rust-vim
+    ];
   };
 
   systemd.user.services.bbh = {
