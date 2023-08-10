@@ -6,7 +6,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    fantasy.url = "path:/home/andrew/code/fantasy";
+    fantasy.url = "github:drewkett/fantasy";
     jj.url = "github:martinvonz/jj";
   };
 

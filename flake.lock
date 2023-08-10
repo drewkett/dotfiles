@@ -7,14 +7,17 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1691520230,
-        "narHash": "sha256-esP1XlPKdVg/puhYTXt8daJ6hfPE26RMn/8m6ay1XkM=",
-        "path": "/home/andrew/code/fantasy",
-        "type": "path"
+        "lastModified": 1691551145,
+        "narHash": "sha256-RE8OvSSy3S7f/mlIjrjiiVE+Ia7qAdaGKg6HM++wcSc=",
+        "owner": "drewkett",
+        "repo": "fantasy",
+        "rev": "687422336ad6dffe5d0ac910493c80d00103b5b4",
+        "type": "github"
       },
       "original": {
-        "path": "/home/andrew/code/fantasy",
-        "type": "path"
+        "owner": "drewkett",
+        "repo": "fantasy",
+        "type": "github"
       }
     },
     "flake-utils": {
