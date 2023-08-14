@@ -20,7 +20,7 @@ in
   };
   programs.home-manager.enable = true;
 
-  programs.firefox = {
+  programs.firefox = mkIf isLinux {
     enable = true;
   };
   programs.gh = {
