@@ -1,4 +1,4 @@
-{pkgs, lib, fantasy, jj, system, username, homedir, ...}: 
+{pkgs, lib, fantasy, system, username, homedir, ...}: 
 let
   inherit (lib) mkIf;
   inherit (pkgs.stdenv) isLinux isDarwin;
@@ -32,9 +32,6 @@ in
     enable = true;
   };
   programs.bat = {
-    enable = true;
-  };
-  programs.jujutsu = {
     enable = true;
   };
   programs.git = {

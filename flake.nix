@@ -9,10 +9,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     fantasy.url = "github:drewkett/fantasy";
-    jj.url = "github:martinvonz/jj";
   };
 
-  outputs = inputs @ { nixpkgs, home-manager, darwin, fantasy, jj, ... }: {
+  outputs = inputs @ { nixpkgs, home-manager, darwin, fantasy, ... }: {
     defaultPackage.x86_64-linux = home-manager.defaultPackage.x86_64-linux;
     defaultPackage.aarch64-darwin = home-manager.defaultPackage.aarch64-darwin;
     homeConfigurations = {
@@ -20,7 +19,7 @@
         pkgs = import nixpkgs { system = "aarch64-darwin"; };
         modules  = [ ./home.nix ];
         extraSpecialArgs = {
-          inherit fantasy jj;
+          inherit fantasy;
           system = "x86_64-linux";
           username = "andrew";
           homedir = "/home/andrew";
@@ -30,7 +29,7 @@
         pkgs = import nixpkgs { system = "aarch64-darwin"; };
         modules  = [ ./home.nix ];
         extraSpecialArgs = {
-          inherit fantasy jj;
+          inherit fantasy;
           system = "aarch64-darwin";
           username = "andrewburkett";
           homedir = "/Users/andrewburkett";
