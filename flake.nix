@@ -16,7 +16,7 @@
     defaultPackage.aarch64-darwin = home-manager.defaultPackage.aarch64-darwin;
     homeConfigurations = {
       fedora = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs { system = "aarch64-darwin"; };
+        pkgs = import nixpkgs { system = "x86_64-linux"; };
         modules  = [ ./home.nix ];
         extraSpecialArgs = {
           inherit fantasy;
