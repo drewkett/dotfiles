@@ -1,12 +1,19 @@
-{pkgs, fantasy, jj, ...}: {
-  home.username = "andrew";
-  home.homeDirectory = "/home/andrew";
+{pkgs, lib, fantasy, jj, system, username, homedir, ...}: 
+let
+  inherit (lib) mkIf;
+  inherit (pkgs.stdenv) isLinux isDarwin;
+in
+{
+  home.username = "${username}";
+  home.homeDirectory = "${homedir}";
   home.stateVersion = "23.05"; # To figure this out you can comment out the line and see what version it expected.
   home.packages = [
-      pkgs.ripgrep
+      pkgs.borgbackup
       pkgs.bottom
       pkgs.fd
-      pkgs.borgbackup
+      pkgs.neovim
+      pkgs.ripgrep
+      jj.packages.${system}.default
   ];
   home.sessionVariables = {
       EDITOR = "vim";
@@ -66,7 +73,7 @@
     ];
   };
 
-  systemd.user.services.bbh = {
+  systemd.user.services.bbh = mkIf isLinux {
     Unit.Description = "bb_hitters";
     Install.WantedBy = [ "default.target" ];
     Service = {
@@ -76,10 +83,10 @@
         "STREAMLIT_SERVER_PORT=8520"
         "STREAMLIT_BROWSER_GATHER_USAGE_STATS=false"
       ];
-      ExecStart = "${fantasy.apps.x86_64-linux.streamlit.program} run bin/bb_hitters_2022.py";
+      ExecStart = "${fantasy.apps.${system}.streamlit.program} run bin/bb_hitters_2022.py";
     };
   };
-  systemd.user.services.bbp = {
+  systemd.user.services.bbp = mkIf isLinux {
     Unit.Description = "bb_pitchers";
     Install.WantedBy = [ "default.target" ];
     Service = {
@@ -89,10 +96,10 @@
         "STREAMLIT_SERVER_PORT=8521"
         "STREAMLIT_BROWSER_GATHER_USAGE_STATS=false"
       ];
-      ExecStart = "${fantasy.apps.x86_64-linux.streamlit.program} run bin/bb_pitchers_2022.py";
+      ExecStart = "${fantasy.apps.${system}.streamlit.program} run bin/bb_pitchers_2022.py";
     };
   };
-  systemd.user.services.bbid = {
+  systemd.user.services.bbid = mkIf isLinux {
     Unit.Description = "bb_id_map";
     Install.WantedBy = [ "default.target" ];
     Service = {
@@ -102,7 +109,7 @@
         "STREAMLIT_SERVER_PORT=8522"
         "STREAMLIT_BROWSER_GATHER_USAGE_STATS=false"
       ];
-      ExecStart = "${fantasy.apps.x86_64-linux.streamlit.program} run bin/bb_id_map.py";
+      ExecStart = "${fantasy.apps.${system}.streamlit.program} run bin/bb_id_map.py";
     };
   };
 }
