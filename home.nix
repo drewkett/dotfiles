@@ -13,7 +13,6 @@ in
       pkgs.fd
       pkgs.neovim
       pkgs.ripgrep
-      jj.packages.${system}.default
   ];
   home.sessionVariables = {
       EDITOR = "vim";
