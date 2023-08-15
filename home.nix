@@ -11,7 +11,6 @@ in
       pkgs.borgbackup
       pkgs.bottom
       pkgs.fd
-      pkgs.neovim
       pkgs.ripgrep
   ];
   home.sessionVariables = {
