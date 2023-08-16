@@ -1,8 +1,4 @@
-{pkgs, lib, fantasy, system, username, homedir, ...}: 
-let
-  inherit (lib) mkIf;
-  inherit (pkgs.stdenv) isLinux isDarwin;
-in
+{pkgs, lib, username, homedir, ...}: 
 {
   imports = [
     ./systemd.nix
