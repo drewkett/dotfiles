@@ -2,7 +2,6 @@
 let 
   streamlit = "${fantasy.apps.${system}.streamlit.program}";
 in
-lib.mkIf pkgs.stdenv.isLinux {
   systemd.user.services.bbh = {
     Unit.Description = "bb_hitters";
     Install.WantedBy = [ "default.target" ];
