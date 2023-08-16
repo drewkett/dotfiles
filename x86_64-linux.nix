@@ -10,7 +10,7 @@ in
     Unit.Description = "bb_hitters";
     Install.WantedBy = [ "default.target" ];
     Service = {
-      WorkingDirectory = "${fantasy}";
+      WorkingDirectory = "/home/andrew/code/fantasy";
       Environment = [
         "STREAMLIT_SERVER_HEADLESS=true"
         "STREAMLIT_SERVER_PORT=8520"
@@ -23,7 +23,7 @@ in
     Unit.Description = "bb_pitchers";
     Install.WantedBy = [ "default.target" ];
     Service = {
-      WorkingDirectory = "${fantasy}";
+      WorkingDirectory = "/home/andrew/code/fantasy";
       Environment = [
         "STREAMLIT_SERVER_HEADLESS=true"
         "STREAMLIT_SERVER_PORT=8521"
@@ -36,7 +36,7 @@ in
     Unit.Description = "bb_id_map";
     Install.WantedBy = [ "default.target" ];
     Service = {
-      WorkingDirectory = "${fantasy}";
+      WorkingDirectory = "/home/andrew/code/fantasy";
       Environment = [
         "STREAMLIT_SERVER_HEADLESS=true"
         "STREAMLIT_SERVER_PORT=8522"
