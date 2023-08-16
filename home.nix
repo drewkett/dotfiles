@@ -4,6 +4,10 @@ let
   inherit (pkgs.stdenv) isLinux isDarwin;
 in
 {
+  imports = [
+    ./systemd.nix
+  ];
+
   home.username = "${username}";
   home.homeDirectory = "${homedir}";
   home.stateVersion = "23.05"; # To figure this out you can comment out the line and see what version it expected.
@@ -48,45 +52,5 @@ in
       vim-gitgutter
       vim-prettier
     ];
-  };
-
-  systemd.user.services.bbh = mkIf isLinux {
-    Unit.Description = "bb_hitters";
-    Install.WantedBy = [ "default.target" ];
-    Service = {
-      WorkingDirectory = "/home/andrew/code/fantasy";
-      Environment = [
-        "STREAMLIT_SERVER_HEADLESS=true"
-        "STREAMLIT_SERVER_PORT=8520"
-        "STREAMLIT_BROWSER_GATHER_USAGE_STATS=false"
-      ];
-      ExecStart = "${fantasy.apps.${system}.streamlit.program} run bin/bb_hitters_2022.py";
-    };
-  };
-  systemd.user.services.bbp = mkIf isLinux {
-    Unit.Description = "bb_pitchers";
-    Install.WantedBy = [ "default.target" ];
-    Service = {
-      WorkingDirectory = "/home/andrew/code/fantasy";
-      Environment = [
-        "STREAMLIT_SERVER_HEADLESS=true"
-        "STREAMLIT_SERVER_PORT=8521"
-        "STREAMLIT_BROWSER_GATHER_USAGE_STATS=false"
-      ];
-      ExecStart = "${fantasy.apps.${system}.streamlit.program} run bin/bb_pitchers_2022.py";
-    };
-  };
-  systemd.user.services.bbid = mkIf isLinux {
-    Unit.Description = "bb_id_map";
-    Install.WantedBy = [ "default.target" ];
-    Service = {
-      WorkingDirectory = "/home/andrew/code/fantasy";
-      Environment = [
-        "STREAMLIT_SERVER_HEADLESS=true"
-        "STREAMLIT_SERVER_PORT=8522"
-        "STREAMLIT_BROWSER_GATHER_USAGE_STATS=false"
-      ];
-      ExecStart = "${fantasy.apps.${system}.streamlit.program} run bin/bb_id_map.py";
-    };
   };
 }
