@@ -18,6 +18,9 @@
     userEmail = "burkett.andrew@gmail.com";
     ignores = [ "*.swp" ];
   };
+  programs.autojump = {
+    enable = true;
+  };
   programs.vim = {
     enable = true;
     extraConfig = (builtins.readFile ./vimrc);
