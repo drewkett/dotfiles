@@ -6,6 +6,9 @@
   programs.bat = {
     enable = true;
   };
+  programs.exa = {
+    enable = true;
+  };
   programs.gh = {
     enable = true;
   };
