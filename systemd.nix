@@ -2,8 +2,8 @@
 let 
   streamlit = "${fantasy.apps.${system}.streamlit.program}";
 in
-{
-  systemd.user.services.bbh = lib.mkIf pkgs.stdenv.isLinux {
+lib.mkIf pkgs.stdenv.isLinux {
+  systemd.user.services.bbh = {
     Unit.Description = "bb_hitters";
     Install.WantedBy = [ "default.target" ];
     Service = {
@@ -15,7 +15,7 @@ in
       ExecStart = "${streamlit} run ${fantasy}/bin/bb_hitters_2022.py";
     };
   };
-  systemd.user.services.bbp = lib.mkIf pkgs.stdenv.isLinux {
+  systemd.user.services.bbp = {
     Unit.Description = "bb_pitchers";
     Install.WantedBy = [ "default.target" ];
     Service = {
@@ -27,7 +27,7 @@ in
       ExecStart = "${streamlit} run ${fantasy}/bin/bb_pitchers_2022.py";
     };
   };
-  systemd.user.services.bbid = lib.mkIf pkgs.stdenv.isLinux {
+  systemd.user.services.bbid = {
     Unit.Description = "bb_id_map";
     Install.WantedBy = [ "default.target" ];
     Service = {
