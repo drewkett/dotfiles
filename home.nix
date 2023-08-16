@@ -38,7 +38,7 @@ in
   };
   programs.vim = {
     enable = true;
-    extraConfig = (builtins.readFile ./vimrc_nix);
+    extraConfig = (builtins.readFile ./vimrc);
     plugins = with pkgs.vimPlugins; [
       ctrlp
       rust-vim
