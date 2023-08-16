@@ -2,6 +2,7 @@
 let 
   streamlit = "${fantasy.apps.${system}.streamlit.program}";
 in
+{
   systemd.user.services.bbh = {
     Unit.Description = "bb_hitters";
     Install.WantedBy = [ "default.target" ];
