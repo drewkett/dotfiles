@@ -1,15 +1,12 @@
 {pkgs, ...}:
 {
-  programs.gh = {
-    enable = true;
-  };
-  programs.tmux = {
-    enable = true;
-  };
-  programs.jq = {
+  programs.autojump = {
     enable = true;
   };
   programs.bat = {
+    enable = true;
+  };
+  programs.gh = {
     enable = true;
   };
   programs.git = {
@@ -18,7 +15,13 @@
     userEmail = "burkett.andrew@gmail.com";
     ignores = [ "*.swp" ];
   };
-  programs.autojump = {
+  programs.jq = {
+    enable = true;
+  };
+  programs.starship = {
+    enable = true;
+  };
+  programs.tmux = {
     enable = true;
   };
   programs.vim = {
