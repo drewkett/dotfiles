@@ -1,8 +1,9 @@
-{pkgs, lib, username, homedir, ...}: 
+{pkgs, lib, username, system, homedir, ...}: 
 {
   imports = [
     ./programs.nix
-  ] ++ lib.optional (pkgs.stdenv.isLinux) ./systemd.nix;
+    ./${system}.nix
+  ];
 
   home.username = "${username}";
   home.homeDirectory = "${homedir}";
