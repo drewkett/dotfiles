@@ -26,6 +26,8 @@
   };
   programs.tmux = {
     enable = true;
+    mouse = true;
+    keyMode = "vi";
   };
   programs.vim = {
     enable = true;
