@@ -7,6 +7,20 @@ in
 {
   programs.bash = {
     enable = true;
+    sessionVariables = {
+      SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket";
+    };
+  };
+  systemd.user.services.ssh_agent = {
+    Unit.Description = "SSH Agent";
+    Install.WantedBy = [ "default.target" ];
+    Service = {
+      WorkingDirectory = "/home/andrew/code/fantasy";
+      Environment = [
+        "SSH_AUTH_SOCK=%t/ssh-agent.socket"
+      ];
+      ExecStart = "${pkgs.openssh}/bin/ssh-agent -D -a $SSH_AUTH_SOCK";
+    };
   };
   systemd.user.services.bb_hitters = {
     Unit.Description = "bb_hitters";
