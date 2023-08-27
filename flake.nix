@@ -18,19 +18,10 @@
         modules = [
           home-manager.darwinModules.home-manager
           ./darwin.nix
-          {
-            users.users.andrewburkett = {
-              name = "andrewburkett";
-              home = "/Users/andrewburkett";
-            };
-            home-manager.users.andrewburkett = import ./home.nix {
-              pkgs = import nixpkgs { system = "aarch64-darwin"; };
-              system = "aarch64-darwin";
-              username = "andrewburkett";
-              homedir = "/Users/andrewburkett";
-            };
-          }
         ];
+        specialArgs = {
+          inherit nixpkgs inputs;
+        };
       };
     };
     homeConfigurations = {
