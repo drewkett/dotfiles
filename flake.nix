@@ -19,7 +19,7 @@
         pkgs = import nixpkgs { system = "x86_64-linux"; };
         modules  = [ ./home.nix ];
         extraSpecialArgs = {
-          inherit fantasy;
+          inherit inputs;
           system = "x86_64-linux";
           username = "andrew";
           homedir = "/home/andrew";
@@ -29,7 +29,7 @@
         pkgs = import nixpkgs { system = "aarch64-darwin"; };
         modules  = [ ./home.nix ];
         extraSpecialArgs = {
-          inherit fantasy;
+          inherit inputs;
           system = "aarch64-darwin";
           username = "andrewburkett";
           homedir = "/Users/andrewburkett";

@@ -1,5 +1,6 @@
-{pkgs, lib, fantasy, system, ...}: 
+{pkgs, lib, inputs, system, ...}: 
 let 
+  fantasy = inputs.fantasy;
   bb_hitters = "${fantasy.apps.${system}.bb_hitters.program}";
   bb_pitchers = "${fantasy.apps.${system}.bb_pitchers.program}";
   bb_id_map = "${fantasy.apps.${system}.bb_id_map.program}";
