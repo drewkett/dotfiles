@@ -5,6 +5,7 @@ let
   system = "aarch64-darwin";
 in
 {
+  programs.zsh.enable = true;
   services.nix-daemon.enable = true;
   users.users."${username}" = {
     name = "${username}";
