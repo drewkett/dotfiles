@@ -1,4 +1,4 @@
-{pkgs, lib, username, system, homedir, ...}: 
+{pkgs, username, system, homedir, ...}: 
 {
   imports = [
     ./programs.nix
