@@ -1,4 +1,4 @@
-{ ... }:
+{ lib, ... }:
 {
   programs.zsh = {
     enable = true;
@@ -8,11 +8,11 @@
     extraConfig = ''
       AddKeysToAgent  yes
     '';
-    matchBlocks = [
-      {
-        host="kyoto";
+    matchBlocks = {
+      kyoto = {
         hostname="kyoto.local";
-        user="andrew"
-    ];
+        user="andrew";
+      };
+    };
   };
 }
