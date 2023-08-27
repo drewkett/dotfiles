@@ -5,6 +5,12 @@ let
   bb_id_map = "${fantasy.apps.${system}.bb_id_map.program}";
 in
 {
+  programs.ssh = {
+    enable = true;
+    extraConfig = ''
+      AddKeysToAgent  yes
+    '';
+  };
   programs.bash = {
     enable = true;
     sessionVariables = {
