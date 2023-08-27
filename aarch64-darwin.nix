@@ -8,5 +8,11 @@
     extraConfig = ''
       AddKeysToAgent  yes
     '';
+    matchBlocks = [
+      {
+        host="kyoto";
+        hostname="kyoto.local";
+        user="andrew"
+    ];
   };
 }
