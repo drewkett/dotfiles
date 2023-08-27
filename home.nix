@@ -7,7 +7,9 @@
 
   home.username = "${username}";
   home.homeDirectory = "${homedir}";
-  home.stateVersion = "23.05"; # To figure this out you can comment out the line and see what version it expected.
+  # To figure this out you can comment out the line and see what version it
+  # expected.
+  home.stateVersion = "23.05"; 
   home.packages = [
       pkgs.borgbackup
       pkgs.bottom

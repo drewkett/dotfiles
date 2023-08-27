@@ -1,5 +1,11 @@
 {pkgs, ...}:
 {
+  home.packages = [
+      pkgs.borgbackup
+      pkgs.bottom
+      pkgs.fd
+      pkgs.ripgrep
+  ];
   programs.autojump = {
     enable = true;
   };
