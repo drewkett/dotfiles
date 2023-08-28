@@ -4,6 +4,7 @@
       pkgs.borgbackup
       pkgs.bottom
       pkgs.fd
+      pkgs.fira-code
       pkgs.ripgrep
   ];
   programs.autojump = {

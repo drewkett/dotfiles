@@ -4,6 +4,9 @@ let
   username = "andrewburkett";
   homedir = "/Users/andrewburkett";
   system = "aarch64-darwin";
+  # I'm not sure why pkgs needs to be done this way here but is available
+  # directly on import when using home-manager only.
+  pkgs = import nixpkgs { inherit system; };
 in
 {
   # This is needed so that the global system path ends up added in the global
@@ -16,9 +19,16 @@ in
     home = "${homedir}";
   };
   home-manager.users."${username}" = import ./home.nix {
-    inherit system username homedir;
-    # I'm not sure why pkgs needs to be done this way here but is available
-    # directly on import when using home-manager only.
-    pkgs = import nixpkgs { inherit system; };
+    inherit pkgs system username homedir;
   };
+  fonts = {
+    fontDir.enable = true;
+    fonts = [ pkgs.fira-code ];
+  };
+  homebrew.enable = true;
+  homebrew.casks = [
+    "iterm2"
+    "spectacle"
+  ];
+  programs.tmux.iTerm2 = true;
 }
