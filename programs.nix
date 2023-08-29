@@ -28,6 +28,12 @@
   programs.jq = {
     enable = true;
   };
+  programs.ssh = {
+    enable = true;
+    extraConfig = ''
+      AddKeysToAgent  yes
+    '';
+  };
   programs.starship = {
     enable = true;
   };
