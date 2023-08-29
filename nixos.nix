@@ -68,6 +68,8 @@
     #media-session.enable = true;
   };
 
+  services.btrfs.autoScrub.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.andrew = {
     isNormalUser = true;
