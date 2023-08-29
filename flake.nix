@@ -11,8 +11,10 @@
 
   outputs = inputs @ { nixpkgs, home-manager, darwin, ... }: {
     darwinConfigurations = {
-      mac = darwin.lib.darwinSystem {
+      mac = let
         system = "aarch64-darwin";
+      in darwin.lib.darwinSystem {
+        inherit system;
         modules = [
           home-manager.darwinModules.home-manager
           ./darwin.nix
@@ -44,20 +46,24 @@
       };
     };
     homeConfigurations = {
-      fedora = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs { system = "x86_64-linux"; };
+      fedora = let 
+        system = "x86_64-linux";
+      in home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs { inherit system; };
         modules  = [ ./home.nix ];
         extraSpecialArgs = inputs // {
-          system = "x86_64-linux";
+          inherit system;
           username = "andrew";
           homedir = "/home/andrew";
         };
       };
-      mac = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs { system = "aarch64-darwin"; };
+      mac = let 
+        system = "aarch64-darwin";
+      in home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs { inherit system; };
         modules  = [ ./home.nix ];
         extraSpecialArgs = inputs // {
-          system = "aarch64-darwin";
+          inherit system;
           username = "andrewburkett";
           homedir = "/Users/andrewburkett";
         };
