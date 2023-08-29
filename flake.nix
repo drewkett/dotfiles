@@ -9,9 +9,7 @@
     fantasy.url = "github:drewkett/fantasy";
   };
 
-  outputs = inputs @ { nixpkgs, home-manager, darwin, fantasy, ... }: {
-    defaultPackage.x86_64-linux = home-manager.defaultPackage.x86_64-linux;
-    defaultPackage.aarch64-darwin = home-manager.defaultPackage.aarch64-darwin;
+  outputs = inputs @ { nixpkgs, home-manager, darwin, ... }: {
     darwinConfigurations = {
       mac = darwin.lib.darwinSystem {
         system = "aarch64-darwin";
@@ -25,8 +23,10 @@
       };
     };
     nixosConfigurations = {
-      linux = nixpkgs.lib.nixosSystem {
+      linux = let
         system = "x86_64-linux";
+        pkgs = import nixpkgs { inherit system; };
+      in nixpkgs.lib.nixosSystem {
         modules = [
           ./nixos.nix
           home-manager.nixosModules.home-manager
@@ -34,12 +34,11 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.andrew = import ./home.nix {
-              pkgs = import nixpkgs { system = "x86_64-linux"; };
-              system = "x86_64-linux";
+              inherit system pkgs;
               username = "andrew";
               homedir = "/home/andrew";
             };
-            home-manager.extraSpecialArgs = inputs // { system = "x86_64-linux"; };
+            home-manager.extraSpecialArgs = inputs // { inherit system; };
           }
         ];
       };
