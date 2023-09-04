@@ -1,4 +1,4 @@
-{pkgs, ...}:
+{pkgs, devenv, system, ...}:
 {
   home.packages = [
       pkgs.borgbackup
@@ -6,6 +6,7 @@
       pkgs.fd
       pkgs.fira-code
       pkgs.ripgrep
+      devenv.packages.${system}.default
   ];
   programs.autojump = {
     enable = true;

@@ -7,6 +7,8 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     fantasy.url = "github:drewkett/fantasy";
+    hcp.url = "github:drewkett/hcp";
+    devenv.url = "github:cachix/devenv";
   };
 
   outputs = inputs @ { nixpkgs, home-manager, darwin, ... }: {
