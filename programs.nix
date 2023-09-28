@@ -5,6 +5,7 @@
       pkgs.bottom
       pkgs.fd
       pkgs.fira-code
+      pkgs.mosh
       pkgs.ripgrep
       devenv.packages.${system}.default
   ];

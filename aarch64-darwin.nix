@@ -2,7 +2,6 @@
 {
   programs.zsh = {
     enable = true;
-    enableFzfHistory = true;
   };
   programs.ssh = {
     matchBlocks = {
