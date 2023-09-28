@@ -1,4 +1,4 @@
-{ nixpkgs, ... } :
+{ nixpkgs, inputs, ... } :
 let 
   # no idea if there's a better way to do this
   username = "andrewburkett";
@@ -21,6 +21,7 @@ in
   home-manager.users."${username}" = import ./home.nix {
     inherit pkgs system username homedir;
   };
+  home-manager.extraSpecialArgs = inputs // { inherit system; };
   fonts = {
     fontDir.enable = true;
     fonts = [ pkgs.fira-code ];
