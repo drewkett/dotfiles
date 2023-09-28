@@ -14,7 +14,7 @@
   programs.bat = {
     enable = true;
   };
-  programs.exa = {
+  programs.eza = {
     enable = true;
   };
   programs.gh = {
