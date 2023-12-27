@@ -76,7 +76,7 @@
   users.users.andrew = {
     isNormalUser = true;
     description = "Andrew";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
       firefox
     ];
@@ -91,6 +91,7 @@
 
   services.openssh.enable = true;
   programs.mosh.enable = true;
+  virtualisation.docker.enable = true;
 
   networking.firewall.allowedTCPPorts = [ 8520 8521 8522 ];
 
