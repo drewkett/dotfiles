@@ -7,7 +7,8 @@ let mapleader = "\<Space>"
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 set mouse=a
 
-nnoremap <Leader>re :edit ~/code/dotfiles/vimrc_nix<CR>
+nnoremap <Leader>re :edit ~/code/dotfiles/vimrc<CR>
+nnoremap <Leader>rr :source ~/code/dotfiles/vimrc<CR>
 
 nnoremap <Leader>p :CtrlP<CR>
 nnoremap <Leader>gs :Git<CR>
