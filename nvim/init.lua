@@ -62,6 +62,22 @@ require("lazy").setup({
             },
         },
         {
+            "akinsho/toggleterm.nvim",
+            version = "*",
+            config = true,
+            opts = {
+                persist_mode = true,
+            },
+            keys = {
+                {
+                    "<C-t>",
+                    "<cmd>ToggleTerm<CR>",
+                    mode = { "n", "t" },
+                    desc = "Toggle terminal",
+                },
+            },
+        },
+        {
             "hrsh7th/nvim-cmp",
             dependencies = {
                 "hrsh7th/cmp-nvim-lsp", -- LSP source
