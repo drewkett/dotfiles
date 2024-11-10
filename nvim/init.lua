@@ -27,6 +27,16 @@ vim.keymap.set("n", "<leader>ce", ":sp ~/.config/nvim/init.lua<CR>", { silent = 
 require("lazy").setup({
     spec = {
         {
+            "folke/tokyonight.nvim",
+            lazy = false,
+            priority = 1000,
+            opts = { style = "storm" },
+            config = function()
+                vim.cmd.colorscheme("tokyonight")
+            end,
+        },
+        { "nvim-treesitter/nvim-treesitter", opts = { build = ":TSUpdate" } },
+        {
             "neovim/nvim-lspconfig",
             lazy = false,
             config = function()
