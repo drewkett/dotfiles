@@ -44,6 +44,24 @@ require("lazy").setup({
             },
         },
         {
+            "folke/which-key.nvim",
+            event = "VeryLazy",
+            opts = {
+                -- your configuration comes here
+                -- or leave it empty to use the default settings
+                -- refer to the configuration section below
+            },
+            keys = {
+                {
+                    "<leader>?",
+                    function()
+                        require("which-key").show({ global = false })
+                    end,
+                    desc = "Buffer Local Keymaps (which-key)",
+                },
+            },
+        },
+        {
             "hrsh7th/nvim-cmp",
             dependencies = {
                 "hrsh7th/cmp-nvim-lsp", -- LSP source
@@ -88,19 +106,19 @@ require("lazy").setup({
                 lspconfig.rust_analyzer.setup({})
             end,
             keys = {
-                { "<leader>la", vim.lsp.buf.code_action, { desc = "Code Action" } },
-                { "<leader>lc", vim.lsp.omnifunc, { desc = "Omnifunc" } },
-                { "<leader>ld", vim.lsp.buf.definition, { desc = "Jump to definition" } },
-                { "<leader>lD", vim.lsp.buf.declaration, { desc = "Jump to declaration" } },
-                { "<leader>ll", vim.lsp.buf.hover, { desc = "Hover" } },
-                { "<leader>li", vim.lsp.buf.implementation, { desc = "List implementations" } },
-                { "<leader>lI", vim.lsp.buf.incoming_calls, { desc = "List incoming calls" } },
-                { "<leader>ln", vim.diagnostic.goto_next, { desc = "Jump to next diagnostic" } },
-                { "<leader>lN", vim.diagnostic.goto_prev, { desc = "Jump to previous diagnostic" } },
-                { "<leader>lo", vim.lsp.buf.outgoing_calls, { desc = "List outgoing calls" } },
-                { "<leader>lr", vim.lsp.buf.rename, { desc = "Rename" } },
-                { "<leader>lR", vim.lsp.buf.references, { desc = "Jump to references" } },
-                { "<leader>lt", vim.lsp.buf.type_definition, { desc = "Jump to type definition" } },
+                { "<leader>la", vim.lsp.buf.code_action, desc = "Code Action" },
+                { "<leader>lc", vim.lsp.omnifunc, desc = "Omnifunc" },
+                { "<leader>ld", vim.lsp.buf.definition, desc = "Jump to definition" },
+                { "<leader>lD", vim.lsp.buf.declaration, desc = "Jump to declaration" },
+                { "<leader>ll", vim.lsp.buf.hover, desc = "Hover" },
+                { "<leader>li", vim.lsp.buf.implementation, desc = "List implementations" },
+                { "<leader>lI", vim.lsp.buf.incoming_calls, desc = "List incoming calls" },
+                { "<leader>ln", vim.diagnostic.goto_next, desc = "Jump to next diagnostic" },
+                { "<leader>lN", vim.diagnostic.goto_prev, desc = "Jump to previous diagnostic" },
+                { "<leader>lo", vim.lsp.buf.outgoing_calls, desc = "List outgoing calls" },
+                { "<leader>lr", vim.lsp.buf.rename, desc = "Rename" },
+                { "<leader>lR", vim.lsp.buf.references, desc = "Jump to references" },
+                { "<leader>lt", vim.lsp.buf.type_definition, desc = "Jump to type definition" },
             },
         },
         {
@@ -108,21 +126,21 @@ require("lazy").setup({
             dependencies = { "nvim-lua/plenary.nvim" },
             cmd = "Telescope",
             keys = {
-                { "<leader>ff", "<cmd>Telescope find_files<CR>", { desc = "Telescope find files" } },
+                { "<leader>ff", "<cmd>Telescope find_files<CR>", desc = "Telescope find files" },
                 {
                     "<leader>fg",
                     "<cmd>Telescope live_grep<CR>",
-                    { desc = "Telescope live grep" },
+                    desc = "Telescope live grep",
                 },
                 {
                     "<leader>fb",
                     "<cmd>Telescope buffers<CR>",
-                    { desc = "Telescope buffers" },
+                    desc = "Telescope buffers",
                 },
                 {
                     "<leader>fh",
                     "<cmd>Telescope help_tags<CR>",
-                    { desc = "Telescope help tags" },
+                    desc = "Telescope help tags",
                 },
             },
         },
