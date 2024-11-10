@@ -44,6 +44,23 @@ require("lazy").setup({
             },
         },
         {
+            "nvim-tree/nvim-tree.lua",
+            version = "*",
+            lazy = false,
+            dependencies = {
+                "nvim-tree/nvim-web-devicons",
+            },
+            config = function()
+                require("nvim-tree").setup({})
+                require("nvim-web-devicons").setup({})
+                vim.g.loaded_netrw = 1
+                vim.g.loaded_netrwPlugin = 1
+            end,
+            keys = {
+                { "<leader>t", "<cmd>NvimTreeToggle<cr>", desc = "File tree" },
+            },
+        },
+        {
             "folke/which-key.nvim",
             event = "VeryLazy",
             opts = {
