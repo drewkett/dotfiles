@@ -44,6 +44,42 @@ require("lazy").setup({
             },
         },
         {
+            "hrsh7th/nvim-cmp",
+            dependencies = {
+                "hrsh7th/cmp-nvim-lsp", -- LSP source
+                "hrsh7th/cmp-buffer", -- Buffer source
+                "hrsh7th/cmp-path", -- Path source
+                "hrsh7th/cmp-cmdline", -- Cmdline source
+                "L3MON4D3/LuaSnip", -- Snippets engine
+                "saadparwaiz1/cmp_luasnip", -- Snippet completions
+            },
+            event = { "InsertEnter", "CmdlineEnter" },
+            config = function()
+                local cmp = require("cmp")
+
+                cmp.setup({
+                    snippet = {
+                        expand = function(args)
+                            luasnip.lsp_expand(args.body)
+                        end,
+                    },
+                    mapping = cmp.mapping.preset.insert({
+                        ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+                        ["<C-f>"] = cmp.mapping.scroll_docs(4),
+                        ["<C-Space>"] = cmp.mapping.complete(),
+                        ["<C-e>"] = cmp.mapping.close(),
+                        ["<CR>"] = cmp.mapping.confirm({ select = true }),
+                    }),
+                    sources = {
+                        { name = "nvim_lsp" },
+                        { name = "buffer" },
+                        { name = "path" },
+                        { name = "luasnip" },
+                    },
+                })
+            end,
+        },
+        {
             "neovim/nvim-lspconfig",
             lazy = false,
             config = function()
@@ -52,6 +88,8 @@ require("lazy").setup({
                 lspconfig.rust_analyzer.setup({})
             end,
             keys = {
+                { "<leader>la", vim.lsp.buf.code_action, { desc = "Code Action" } },
+                { "<leader>lc", vim.lsp.omnifunc, { desc = "Omnifunc" } },
                 { "<leader>ld", vim.lsp.buf.definition, { desc = "Jump to definition" } },
                 { "<leader>lD", vim.lsp.buf.declaration, { desc = "Jump to declaration" } },
                 { "<leader>ll", vim.lsp.buf.hover, { desc = "Hover" } },
