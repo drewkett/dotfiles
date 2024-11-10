@@ -3,6 +3,7 @@ require("config.lazy")
 vim.g.mapleader = ' '
 vim.keymap.set('n', '<leader>rr', ':luafile ~/.config/nvim/init.lua<CR>', {silent=true})
 vim.keymap.set('n', '<leader>re', ':sp ~/.config/nvim/init.lua<CR>', {silent=true})
+vim.keymap.set('n', '<leader>ld', '<Cmd>lua vim.lsp.buf.definition()<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>ln', '<cmd>lua vim.diagnostic.goto_next()<cr>', {silent=true})
 vim.keymap.set('n', '<leader>lN', '<cmd>lua vim.diagnostic.goto_prev()<cr>', {silent=true})
 
