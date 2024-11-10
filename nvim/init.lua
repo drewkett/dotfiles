@@ -30,12 +30,19 @@ require("lazy").setup({
             "folke/tokyonight.nvim",
             lazy = false,
             priority = 1000,
-            opts = { style = "storm" },
+            opts = {},
             config = function()
                 vim.cmd.colorscheme("tokyonight")
             end,
         },
-        { "nvim-treesitter/nvim-treesitter", opts = { build = ":TSUpdate" } },
+        {
+            "nvim-treesitter/nvim-treesitter",
+            opts = {
+                build = ":TSUpdate",
+                ensure_installed = { "rust", "lua", "markdown", "markdown_inline" },
+                highlight = { enable = true },
+            },
+        },
         {
             "neovim/nvim-lspconfig",
             lazy = false,
