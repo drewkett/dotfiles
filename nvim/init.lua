@@ -87,7 +87,7 @@ require("lazy").setup({
             },
             keys = {
                 {
-                    "<C-t>",
+                    "kj",
                     "<cmd>ToggleTerm<CR>",
                     mode = { "n", "t" },
                     desc = "Toggle terminal",
