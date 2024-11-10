@@ -20,17 +20,33 @@ vim.opt.rtp:prepend(lazypath)
 -- This is also a good place to setup other settings (vim.opt)
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
+vim.keymap.set("n", "<leader>cr", ":luafile ~/.config/nvim/init.lua<CR>", { silent = true })
+vim.keymap.set("n", "<leader>ce", ":sp ~/.config/nvim/init.lua<CR>", { silent = true })
 
 -- Setup lazy.nvim
 require("lazy").setup({
     spec = {
         {
             "neovim/nvim-lspconfig",
+            lazy = false,
             config = function()
                 local lspconfig = require("lspconfig")
 
                 lspconfig.rust_analyzer.setup({})
             end,
+            keys = {
+                { "<leader>ld", vim.lsp.buf.definition, { desc = "Jump to definition" } },
+                { "<leader>lD", vim.lsp.buf.declaration, { desc = "Jump to declaration" } },
+                { "<leader>ll", vim.lsp.buf.hover, { desc = "Hover" } },
+                { "<leader>li", vim.lsp.buf.implementation, { desc = "List implementations" } },
+                { "<leader>lI", vim.lsp.buf.incoming_calls, { desc = "List incoming calls" } },
+                { "<leader>ln", vim.diagnostic.goto_next, { desc = "Jump to next diagnostic" } },
+                { "<leader>lN", vim.diagnostic.goto_prev, { desc = "Jump to previous diagnostic" } },
+                { "<leader>lo", vim.lsp.buf.outgoing_calls, { desc = "List outgoing calls" } },
+                { "<leader>lr", vim.lsp.buf.rename, { desc = "Rename" } },
+                { "<leader>lR", vim.lsp.buf.references, { desc = "Jump to references" } },
+                { "<leader>lt", vim.lsp.buf.type_definition, { desc = "Jump to type definition" } },
+            },
         },
         {
             "nvim-telescope/telescope.nvim",
@@ -121,8 +137,3 @@ require("lazy").setup({
     -- automatically check for plugin updates
     checker = { enabled = true },
 })
-
-vim.keymap.set("n", "<leader>rr", ":luafile ~/.config/nvim/init.lua<CR>", { silent = true })
-vim.keymap.set("n", "<leader>re", ":sp ~/.config/nvim/init.lua<CR>", { silent = true })
-vim.keymap.set("n", "<leader>ln", "<cmd>lua vim.diagnostic.goto_next()<cr>", { silent = true })
-vim.keymap.set("n", "<leader>lN", "<cmd>lua vim.diagnostic.goto_prev()<cr>", { silent = true })
