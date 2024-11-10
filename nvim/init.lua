@@ -35,6 +35,25 @@ require("lazy").setup({
         {
             "nvim-telescope/telescope.nvim",
             dependencies = { "nvim-lua/plenary.nvim" },
+            cmd = "Telescope",
+            keys = {
+                { "<leader>ff", "<cmd>Telescope find_files<CR>", { desc = "Telescope find files" } },
+                {
+                    "<leader>fg",
+                    "<cmd>Telescope live_grep<CR>",
+                    { desc = "Telescope live grep" },
+                },
+                {
+                    "<leader>fb",
+                    "<cmd>Telescope buffers<CR>",
+                    { desc = "Telescope buffers" },
+                },
+                {
+                    "<leader>fh",
+                    "<cmd>Telescope help_tags<CR>",
+                    { desc = "Telescope help tags" },
+                },
+            },
         },
         {
             "stevearc/conform.nvim",
@@ -107,8 +126,3 @@ vim.keymap.set("n", "<leader>rr", ":luafile ~/.config/nvim/init.lua<CR>", { sile
 vim.keymap.set("n", "<leader>re", ":sp ~/.config/nvim/init.lua<CR>", { silent = true })
 vim.keymap.set("n", "<leader>ln", "<cmd>lua vim.diagnostic.goto_next()<cr>", { silent = true })
 vim.keymap.set("n", "<leader>lN", "<cmd>lua vim.diagnostic.goto_prev()<cr>", { silent = true })
-
-vim.keymap.set("n", "<leader>ff", require("telescope.builtin").find_files, { desc = "Telescope find files" })
-vim.keymap.set("n", "<leader>fg", require("telescope.builtin").live_grep, { desc = "Telescope live grep" })
-vim.keymap.set("n", "<leader>fb", require("telescope.builtin").buffers, { desc = "Telescope buffers" })
-vim.keymap.set("n", "<leader>fh", require("telescope.builtin").help_tags, { desc = "Telescope help tags" })
