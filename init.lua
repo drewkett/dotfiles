@@ -33,6 +33,7 @@ vim.g.maplocalleader = "\\"
 vim.keymap.set("n", "<leader>cr", ":luafile ~/.config/nvim/init.lua<CR>", { desc = "Reload config", silent = true })
 vim.keymap.set("n", "<leader>ce", ":sp ~/.config/nvim/init.lua<CR>", { desc = "Edit config", silent = true })
 vim.keymap.set("n", "<leader>cE", ":e ~/.config/nvim/init.lua<CR>", { desc = "Edit config in place", silent = true })
+vim.keymap.set("n", "<leader>cu", ":Lazy update<CR>", { desc = "Update plugins", silent = true })
 vim.keymap.set("i", "kj", "<ESC>", { silent = true })
 
 vim.keymap.set("n", "<leader>bn", ":bn<cr>", { desc = "Next buffer", silent = true })
@@ -346,5 +347,5 @@ require("lazy").setup({
     -- colorscheme that will be used when installing plugins.
     -- install = { colorscheme = { "habamax" } },
     -- automatically check for plugin updates
-    checker = { enabled = true },
+    -- checker = { enabled = true },
 })
