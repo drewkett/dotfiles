@@ -168,8 +168,6 @@ require("lazy").setup({
         },
         {
             "akinsho/toggleterm.nvim",
-            version = "*",
-            config = true,
             opts = {
                 persist_mode = true,
             },
@@ -293,7 +291,6 @@ require("lazy").setup({
         },
         {
             "folke/trouble.nvim",
-            opts = {}, -- for default options, refer to the configuration section for custom setup.
             cmd = "Trouble",
             keys = {
                 {
@@ -330,9 +327,6 @@ require("lazy").setup({
         },
         {
             "numToStr/Comment.nvim",
-            opts = {
-                -- add any options here
-            },
             keys = {
                 {
                     "<leader>/",
