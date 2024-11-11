@@ -58,6 +58,35 @@ require("lazy").setup({
             },
         },
         {
+            "nvim-neorg/neorg",
+            lazy = false, -- Disable lazy loading as some `lazy.nvim` distributions set `lazy = true` by default
+            version = "*", -- Pin Neorg to the latest stable release
+            opts = {
+                load = {
+                    ["core.defaults"] = {},
+                    ["core.concealer"] = {}, -- We added this line!
+                    ["core.text-objects"] = {}, -- We added this line!
+                },
+            },
+            keys = {
+                {
+                    "<leader>nc",
+                    "<cmd>Neorg toggle-concealer<cr>",
+                    desc = "Neorg toggle concealer",
+                },
+                {
+                    "<leader>nj",
+                    "<Plug>(neorg.text-objects.item-down)",
+                    desc = "Item down",
+                },
+                {
+                    "<leader>nk",
+                    "<Plug>(neorg.text-objects.item-up)",
+                    desc = "Item up",
+                },
+            },
+        },
+        {
             "nvim-tree/nvim-tree.lua",
             version = "*",
             lazy = false,
