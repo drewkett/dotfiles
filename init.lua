@@ -36,6 +36,7 @@ vim.keymap.set("i", "kj", "<ESC>", { silent = true })
 
 vim.keymap.set("n", "<leader>bn", ":bn<cr>", { desc = "Next buffer", silent = true })
 vim.keymap.set("n", "<leader>bp", ":bp<cr>", { desc = "Previous buffer", silent = true })
+vim.keymap.set("n", "<leader>w", ":w<cr>", { desc = "Write file", silent = true })
 
 -- Setup lazy.nvim
 require("lazy").setup({
