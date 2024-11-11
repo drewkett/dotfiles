@@ -205,6 +205,7 @@ require("lazy").setup({
             cmd = "Telescope",
             keys = {
                 { "<leader>ff", "<cmd>Telescope find_files<CR>", desc = "Telescope find files" },
+                { "<leader>p", "<cmd>Telescope find_files<CR>", desc = "Telescope find files" },
                 {
                     "<leader>fg",
                     "<cmd>Telescope live_grep<CR>",
@@ -289,12 +290,12 @@ require("lazy").setup({
             },
             keys = {
                 {
-                    "<leader>p",
+                    "<leader>/",
                     "<Plug>(comment_toggle_linewise_current)",
                     desc = "Toggle Comment",
                 },
                 {
-                    "<leader>p",
+                    "<leader>/",
                     "<Plug>(comment_toggle_linewise_visual)",
                     mode = { "v", "x" },
                     desc = "Toggle Comment",
