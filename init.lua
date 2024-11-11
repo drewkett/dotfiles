@@ -1,7 +1,11 @@
 -- Notes
 -- - Install nerd fonts manually for nice icons
--- - Needs rust-analyzer installed as component
+-- - lsp
+--   - Needs rust-analyzer installed as component
+--   - ruff + pyright for python (pipx install)
 -- - Formatters need to be installed manually
+--   - mdformat (pipx)
+--   - stylua (cargo)
 -- - treesitter will install configured languages
 --
 -- Bootstrap lazy.nvim
