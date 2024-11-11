@@ -28,6 +28,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 vim.keymap.set("n", "<leader>cr", ":luafile ~/.config/nvim/init.lua<CR>", { silent = true })
 vim.keymap.set("n", "<leader>ce", ":sp ~/.config/nvim/init.lua<CR>", { silent = true })
+vim.keymap.set("i", "kj", "<ESC>", { silent = true })
 
 -- Setup lazy.nvim
 require("lazy").setup({
