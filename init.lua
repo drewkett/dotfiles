@@ -81,6 +81,30 @@ require("lazy").setup({
                     desc = "Neorg toggle concealer",
                 },
                 {
+                    "<leader>nh",
+                    "<Plug>(neorg.promo.demote)",
+                    mode = { "n", "v" },
+                    desc = "demote",
+                },
+                {
+                    "<leader>nH",
+                    "<Plug>(neorg.promo.demote.nested)",
+                    mode = { "n", "v" },
+                    desc = "demote (nested)",
+                },
+                {
+                    "<leader>nl",
+                    "<Plug>(neorg.promo.promote)",
+                    mode = { "n", "v" },
+                    desc = "Promote",
+                },
+                {
+                    "<leader>nL",
+                    "<Plug>(neorg.promo.promote.nested)",
+                    mode = { "n", "v" },
+                    desc = "Promote (nested",
+                },
+                {
                     "<leader>nj",
                     "<Plug>(neorg.text-objects.item-down)",
                     desc = "Item down",
@@ -89,6 +113,41 @@ require("lazy").setup({
                     "<leader>nk",
                     "<Plug>(neorg.text-objects.item-up)",
                     desc = "Item up",
+                },
+                {
+                    "<leader>td",
+                    "<Plug>(neorg.qol.todo-items.todo.task-done)",
+                    desc = "Task Done",
+                },
+                {
+                    "<leader>tu",
+                    "<Plug>(neorg.qol.todo-items.todo.task-undone)",
+                    desc = "Task Undone",
+                },
+                {
+                    "<leader>tp",
+                    "<Plug>(neorg.qol.todo-items.todo.task-pending)",
+                    desc = "Task Pending",
+                },
+                {
+                    "<leader>th",
+                    "<Plug>(neorg.qol.todo-items.todo.task-on_hold)",
+                    desc = "Task On Hold",
+                },
+                {
+                    "<leader>tx",
+                    "<Plug>(neorg.qol.todo-items.todo.task-cancelled)",
+                    desc = "Task Cancelled",
+                },
+                {
+                    "<leader>ti",
+                    "<Plug>(neorg.qol.todo-items.todo.task-important)",
+                    desc = "Task Important",
+                },
+                {
+                    "<leader>tt",
+                    "<Plug>(neorg.qol.todo-items.todo.task-cycle)",
+                    desc = "Task Cycle",
                 },
             },
         },
