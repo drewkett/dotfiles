@@ -1,3 +1,9 @@
+-- Notes
+-- - Install nerd fonts manually for nice icons
+-- - Needs rust-analyzer installed as component
+-- - Formatters need to be installed manually
+-- - treesitter will install configured languages
+--
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
