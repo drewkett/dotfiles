@@ -52,7 +52,6 @@ require("lazy").setup({
             "folke/tokyonight.nvim",
             lazy = false,
             priority = 1000,
-            opts = {},
             config = function()
                 vim.cmd.colorscheme("tokyonight")
             end,
@@ -67,8 +66,6 @@ require("lazy").setup({
         },
         {
             "nvim-neorg/neorg",
-            lazy = false, -- Disable lazy loading as some `lazy.nvim` distributions set `lazy = true` by default
-            version = "*", -- Pin Neorg to the latest stable release
             opts = {
                 load = {
                     ["core.defaults"] = {},
@@ -76,6 +73,7 @@ require("lazy").setup({
                     ["core.text-objects"] = {}, -- We added this line!
                 },
             },
+            ft = "norg",
             keys = {
                 {
                     "<leader>nc",
@@ -96,8 +94,6 @@ require("lazy").setup({
         },
         {
             "nvim-tree/nvim-tree.lua",
-            version = "*",
-            lazy = false,
             dependencies = {
                 "nvim-tree/nvim-web-devicons",
             },
