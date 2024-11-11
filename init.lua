@@ -30,6 +30,9 @@ vim.keymap.set("n", "<leader>cr", ":luafile ~/.config/nvim/init.lua<CR>", { sile
 vim.keymap.set("n", "<leader>ce", ":sp ~/.config/nvim/init.lua<CR>", { silent = true })
 vim.keymap.set("i", "kj", "<ESC>", { silent = true })
 
+vim.keymap.set("n", "<leader>bn", ":bn<cr>", { silent = true })
+vim.keymap.set("n", "<leader>bp", ":bp<cr>", { silent = true })
+
 -- Setup lazy.nvim
 require("lazy").setup({
     spec = {
