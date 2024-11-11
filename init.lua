@@ -30,12 +30,12 @@ vim.opt.rtp:prepend(lazypath)
 -- This is also a good place to setup other settings (vim.opt)
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
-vim.keymap.set("n", "<leader>cr", ":luafile ~/.config/nvim/init.lua<CR>", { silent = true })
-vim.keymap.set("n", "<leader>ce", ":sp ~/.config/nvim/init.lua<CR>", { silent = true })
+vim.keymap.set("n", "<leader>cr", ":luafile ~/.config/nvim/init.lua<CR>", { desc = "Reload config", silent = true })
+vim.keymap.set("n", "<leader>ce", ":sp ~/.config/nvim/init.lua<CR>", { desc = "Edit config", silent = true })
 vim.keymap.set("i", "kj", "<ESC>", { silent = true })
 
-vim.keymap.set("n", "<leader>bn", ":bn<cr>", { silent = true })
-vim.keymap.set("n", "<leader>bp", ":bp<cr>", { silent = true })
+vim.keymap.set("n", "<leader>bn", ":bn<cr>", { desc = "Next buffer", silent = true })
+vim.keymap.set("n", "<leader>bp", ":bp<cr>", { desc = "Previous buffer", silent = true })
 
 -- Setup lazy.nvim
 require("lazy").setup({
