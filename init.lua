@@ -37,7 +37,13 @@ vim.keymap.set("i", "kj", "<ESC>", { silent = true })
 
 vim.keymap.set("n", "<leader>bn", ":bn<cr>", { desc = "Next buffer", silent = true })
 vim.keymap.set("n", "<leader>bp", ":bp<cr>", { desc = "Previous buffer", silent = true })
-vim.keymap.set("n", "<leader>w", ":w<cr>", { desc = "Write file", silent = true })
+vim.keymap.set("n", "<leader>bw", ":w<cr>", { desc = "Write file", silent = true })
+vim.keymap.set("n", "<leader>l", "<c-w><right>", { desc = "right window", silent = true })
+vim.keymap.set("n", "<leader>h", "<c-w><left>", { desc = "left window", silent = true })
+vim.keymap.set("n", "<leader>j", "<c-w><down>", { desc = "down window", silent = true })
+vim.keymap.set("n", "<leader>k", "<c-w><up>", { desc = "up window", silent = true })
+vim.keymap.set("n", "<leader>wv", ":vsp<cr>", { desc = "Split vertical", silent = true })
+vim.keymap.set("n", "<leader>wh", ":sp<cr>", { desc = "Split horizontal", silent = true })
 
 -- Setup lazy.nvim
 require("lazy").setup({
