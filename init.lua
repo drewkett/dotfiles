@@ -253,6 +253,25 @@ require("lazy").setup({
                 },
             },
         },
+        {
+            "numToStr/Comment.nvim",
+            opts = {
+                -- add any options here
+            },
+            keys = {
+                {
+                    "<leader>p",
+                    "<Plug>(comment_toggle_linewise_current)",
+                    desc = "Toggle Comment",
+                },
+                {
+                    "<leader>p",
+                    "<Plug>(comment_toggle_linewise_visual)",
+                    mode = { "v", "x" },
+                    desc = "Toggle Comment",
+                },
+            },
+        },
     },
     -- Configure any other settings here. See the documentation for more details.
     -- colorscheme that will be used when installing plugins.
