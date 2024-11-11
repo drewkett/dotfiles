@@ -147,6 +147,8 @@ require("lazy").setup({
                 local lspconfig = require("lspconfig")
 
                 lspconfig.rust_analyzer.setup({})
+                lspconfig.ruff.setup({})
+                lspconfig.pyright.setup({})
             end,
             keys = {
                 { "<leader>la", vim.lsp.buf.code_action, desc = "Code Action" },
