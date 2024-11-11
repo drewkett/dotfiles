@@ -163,7 +163,7 @@ require("lazy").setup({
                 vim.g.loaded_netrwPlugin = 1
             end,
             keys = {
-                { "<leader>t", "<cmd>NvimTreeToggle<cr>", desc = "File tree" },
+                { "<leader>T", "<cmd>NvimTreeToggle<cr>", desc = "File tree" },
             },
         },
         {
