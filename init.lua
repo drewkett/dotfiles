@@ -30,6 +30,12 @@ vim.opt.rtp:prepend(lazypath)
 -- This is also a good place to setup other settings (vim.opt)
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
+-- Default tab behavior
+vim.o.textwidth = 100
+vim.o.tabstop = 4
+vim.o.softtabstop = 4
+vim.o.shiftwidth = 4
+vim.o.expandtab = true
 vim.keymap.set("n", "<leader>cr", ":luafile ~/.config/nvim/init.lua<CR>", { desc = "Reload config", silent = true })
 vim.keymap.set("n", "<leader>ce", ":sp ~/.config/nvim/init.lua<CR>", { desc = "Edit config", silent = true })
 vim.keymap.set("n", "<leader>cE", ":e ~/.config/nvim/init.lua<CR>", { desc = "Edit config in place", silent = true })
@@ -176,6 +182,7 @@ require("lazy").setup({
         },
         {
             "folke/trouble.nvim",
+            opts = {},
             cmd = "Trouble",
             keys = {
                 {
