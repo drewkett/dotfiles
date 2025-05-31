@@ -1,3 +1,4 @@
 export EDITOR=nvim
 export CARGO_TARGET_DIR=$HOME/.rustup/target
 . "$HOME/.cargo/env"
+export PATH="$HOME/.npm-global/bin:$PATH"
