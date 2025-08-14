@@ -122,7 +122,8 @@ require("lazy").setup({
 
                 lspconfig.rust_analyzer.setup({})
                 lspconfig.ruff.setup({})
-                lspconfig.pyright.setup({})
+                lspconfig.ty.setup({})
+                -- lspconfig.pyright.setup({})
             end,
             keys = {
                 { "<leader>ga", vim.lsp.buf.code_action, desc = "Code Action" },
