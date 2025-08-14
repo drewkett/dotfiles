@@ -333,6 +333,18 @@ require("lazy").setup({
                 },
             },
         },
+        {
+            "greggh/claude-code.nvim",
+            dependencies = {
+                "nvim-lua/plenary.nvim", -- Required for git operations
+            },
+            config = function()
+                require("claude-code").setup()
+            end,
+            keys = {
+                -- { "<leader>cc", ":ClaudeCode<CR>", desc = "Claude Code" },
+            },
+        },
     },
     -- Configure any other settings here. See the documentation for more details.
     -- colorscheme that will be used when installing plugins.
