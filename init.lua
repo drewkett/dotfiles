@@ -30,6 +30,9 @@ vim.opt.rtp:prepend(lazypath)
 -- This is also a good place to setup other settings (vim.opt)
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
+
+vim.opt.exrc = true
+vim.opt.secure = true
 -- Default tab behavior
 vim.opt.textwidth = 100
 vim.opt.tabstop = 4
@@ -119,10 +122,9 @@ require("lazy").setup({
             lazy = false,
             config = function()
                 local lspconfig = require("lspconfig")
-
                 lspconfig.rust_analyzer.setup({})
                 lspconfig.ruff.setup({})
-                lspconfig.ty.setup({})
+                -- lspconfig.ty.setup({})
                 -- lspconfig.pyright.setup({})
             end,
             keys = {
