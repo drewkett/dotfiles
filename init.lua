@@ -121,11 +121,10 @@ require("lazy").setup({
             "neovim/nvim-lspconfig",
             lazy = false,
             config = function()
-                local lspconfig = require("lspconfig")
-                lspconfig.rust_analyzer.setup({})
-                lspconfig.ruff.setup({})
-                -- lspconfig.ty.setup({})
-                -- lspconfig.pyright.setup({})
+                vim.lsp.config('rust_analyzer',{})
+                vim.lsp.config('ruff',{})
+                -- vim.lsp.config('pyright',{})
+                -- vim.lsp.config('ty',{})
             end,
             keys = {
                 { "<leader>ga", vim.lsp.buf.code_action, desc = "Code Action" },
